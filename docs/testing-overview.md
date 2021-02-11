@@ -12,15 +12,15 @@ description: このガイドはReact Native開発者に良いテストの書き�
 
 <img src="/docs/assets/diagram_testing.svg" alt="コードを直して、テストを行いテストがパスしてリリースするか失敗して最初のフローに戻るテストの一連の流れ" />
 
-## Why Test
+## なぜテストが必要か
 
-We're humans, and humans make mistakes. Testing is important because it helps you uncover these mistakes and verifies that your code is working. Perhaps even more importantly, testing ensures that your code continues to work in the future as you add new features, refactor the existing ones, or upgrade major dependencies of your project.
+私たちは人間で、人間は過ちをするのです。テストは重要です。なぜならばあなたのミスを明らかにし、コードが動いているか検証する事を助けるからです。おそらく更に重要な事には、新機能を追加しても、既存のコードをリファクタリングしても、あるいは、プロジェクトの重大な依存関係の更新を行っても、将来もコードが動き続ける事を保証してくれます。
 
-There is more value in testing than you might realize. One of the best ways to fix a bug in your code is to write a failing test that exposes it. Then when you fix the bug and re-run the test, if it passes it means the bug is fixed, never reintroduced into the code base.
+テストにはあなたが思っている以上に価値があるでしょう。コードの中のバグを直す最もよい方法の一つは、バグによって失敗しているテストを書くことです。バグを直してテストを再度実行した時にテストがパスするということは、バグが直りそのバグが二度とコードに持ち込まれない事を意味します。
 
-Tests can also serve as documentation for new people joining your team. For people who have never seen a codebase before, reading tests can help them understand how the existing code works.
+テストは新たにチームに入った人にドキュメントを提供する事にもなります。実際のコードを見た事がない人でもテストを読む事によってそれらがどのように動くか理解する事を手助けします。
 
-Last but not least, more automated testing means less time spent with manual <abbr title="Quality Assurance">QA</abbr>, freeing up valuable time.
+最後になりますが大事なことに、テストが自動化されるにつれて、手動で<abbr title="Quality Assurance">QA</abbr>をテストするよりもかかる時間が少なくなり、貴重な時間が開放されます。
 
 ## Static Analysis
 
