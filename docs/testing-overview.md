@@ -26,7 +26,7 @@ description: このガイドはReact Native開発者に良いテストの書き�
 
 コード品質改善の最初の一歩として、静的解析ツールを使いましょう。静的解析はコードを書くとコードを全く動かすことなくエラーを調べてくれます。
 
-- **Linters** コードを解析して、使われていないコードが存在するというような馴染みのある過ちや、スペースの代わりに tab を使ってはいけないという例（その逆もありえます。あなたの設定次第です。）のように、スタイルガイドが禁止している書き方について目印をつけます。
+- **Linters** コードを解析して、使われていないコードが存在するというような馴染みのある過ちや、スペースの代わりに tab を使ってはいけないという例(その逆もありえます。あなたの設定次第です。)のように、スタイルガイドが禁止している書き方について目印をつけます。
 - **Type checking** 関数に渡しているデータ構造が、関数によってあらかじめ許容されているものと一致している事を保証します。例として、数値データが必要なカウントを行う関数に文字列データが入らないように保証します。
 
 React Native はすぐに使える設定済みの二種類のツールがあります。: [ESLint](https://eslint.org/) `lint`のためのツールです。[Flow](https://flow.org/en/docs/) または、 [TypeScript](typescript)(Javascript にトランスパイル可能な型付き言語)、`Type checking`のためのツールです。
@@ -37,7 +37,7 @@ React Native はすぐに使える設定済みの二種類のツールがあり�
 
 ソフトウェアも似ています。全体のプログラムをたくさんの行のコードを巨大な一つのファイルに書く代わりに、組み立てられたコード全体をテストする事よりも徹底的にテストが可能な小さな複数のモジュールにコードを書きます。この意味で、テストのしやすいコードは簡潔かつモジュラーに組み合わされています。
 
-アプリケーションをよりテストしやすくするには、React のコンポーネントのビューをロジックとステートから切り離すことから始めましょう（Redux, MobX その他どのようなソリューションを用いるとしてもです）。このようにして、ビジネスロジックに関するテストを、主にアプリケーションの UI 描画が責務となる React コンポーネントそれ自身と独立に保つことができます。
+アプリケーションをよりテストしやすくするには、React のコンポーネントのビューをロジックとステートから切り離すことから始めましょう(Redux, MobX その他どのようなソリューションを用いるとしてもです)。このようにして、ビジネスロジックに関するテストを、主にアプリケーションの UI 描画が責務となる React コンポーネントそれ自身と独立に保つことができます。
 
 理論的には、全てのロジックとデータの取得をコンポーネントから移動させることができるはずです。こうすれば、コンポーネントは単独でレンダリングに注力されます。ステートは全体的にコンポーネントから独立するでしょう。アプリケーションのロジックはコンポーネントが一切存在しなくても動くはずです！
 
@@ -91,7 +91,7 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 
 天気の情報を提供している外部のサービスやその他の依存コードを使って現在の街の天気を表示するアプリケーションを書くことを想像してみましょう。もしサービスが雨だと教えてくれるとき、雨雲の画像を表示したいとします。あなたはテストの中でそれらのサービスを呼び出したくないはずです。なぜならば、
 
-- テストが遅くなり不安定になりえるから（ネットワークリクエストに巻き込まれて）
+- テストが遅くなり不安定になりえるから(ネットワークリクエストに巻き込まれて)
 - サービスがテストのたびに違うデータを返してくるかもしれない
 - サードパーティのサービスに繋がらない時でもテストを動かす必要があるから
 
@@ -103,34 +103,34 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 
 大きなソフトウェアシステムを書く時、個々のプログラムが相互にやりとりする必要があります。単体テストでは、あるプログラムが他のプログラムに依存していても、結局、たびたび、それらをフェイクに置き換えて依存をモックにするでしょう。
 
-統合テストでは、実際の個々のユニットを組み合わせて（実際のアプリケーションと同じように）それらが期待通りに協調して動くことを保証するためのテストをまとめて行います。だからと言って、モッキングが必要でなくなるわけではありません。あなたはまだモック（例えば、天気情報の通信のモック）を必要とするかもしれませんが、単体テストの時より必要とする機会はずっと少ないでしょう。
+統合テストでは、実際の個々のユニットを組み合わせて(実際のアプリケーションと同じように)それらが期待通りに協調して動くことを保証するためのテストをまとめて行います。だからと言って、モッキングが必要でなくなるわけではありません。あなたはまだモック(例えば、天気情報の通信のモック)を必要とするかもしれませんが、単体テストの時より必要とする機会はずっと少ないでしょう。
 
 > 統合テストに関する用語の意味は必ずしも一貫性があるものではないことに注意してください。また、単体テストと統合テストの境界はいつでも明確とは限りません。このガイドにとってあなたのテストが統合テストを意味する時はテストが以下のような時です。
 
 > - 述べてきたようにアプリケーションが複数のモジュールの組み合わせになっている時
 > - 外部のシステムを使っている時
-> - （天気サービスの API のような）他のアプリケーションをネットワークから呼び出している時
+> - (天気サービスの API のような)他のアプリケーションをネットワークから呼び出している時
 > - ファイルやデータベースの<abbr title="Input/Output">I/O</abbr>を行う時
 
 <img src="/docs/assets/p_tests-integration.svg" alt=" " />
 
-## Component Tests
+## コンポーネントテスト
 
-React components are responsible for rendering your app, and users will directly interact with their output. Even if your app's business logic has high testing coverage and is correct, without component tests you may still deliver a broken UI to your users. Component tests could fall into both unit and integration testing, but because they are such a core part of React Native, we'll cover them separately.
+React コンポーネントは描画に関する責務があり、ユーザーは直接それらのアウトプットと相互にやりとりするでしょう。例えあなたのビジネスロジックのテストカバレッジが高く正しいとしても、コンポーネントのテストなしではユーザーに壊れた UI を提供してしまうかもしれません。コンポーネントテストは単体テストあるいは統合テストに行き着きますが、React Native においては重要な部分なので、それらとは分けて見ていきましょう。
 
-For testing React components, there are two things you may want to test:
+React コンポーネントをテストするというのも、二つのことをテストしたいからです。
 
-- Interaction: to ensure the component behaves correctly when interacted with by a user (eg. when user presses a button)
-- Rendering: to ensure the component render output used by React is correct (eg. the button's appearance and placement in the UI)
+- インタラクション: ユーザーからの要求にコンポーネントの正しい振る舞いを保証する(例: ボタンを押した時の挙動)
+- レンダリング: React によってコンポーネントが結果を正しく表示していることを保証する(例: UI におけるボタンの見た目や位置)
 
-For example, if you have a button that has an `onPress` listener, you want to test that the button both appears correctly and that tapping the button is correctly handled by the component.
+例えば、ボタンが`onPress`リスナーを持っている時、コンポーネントによってボタンの見た目とボタンがタップされたときに正しく動くか、そのどちらもテストしたいとします。
 
-There are several libraries that can help you testing these:
+これらのテストを助けるいくつかのライブラリがあります。
 
-- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
-- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
+- React の[Test Renderer](https://reactjs.org/docs/test-renderer.html)、 React のコアと一緒に開発されていて、DOM やネイティブモバイル環境がなくても React のコンポーネントをピュアな Javascript のオブジェクトに書き出せるレンダラーを提供します。
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)は React の`Test Renderer`にビルドされ、次のパラグラフで述べるような`fireEvent`や`query`API を追加します。
 
-> Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+> コンポーネントテストは Node.js 環境での Javasdcript のみのテストです。それらは React Native のコンポーネントから渡されるいかなる iOS、Android、その他のプラットフォームのコードも _考慮しません_ 。このことは、それらが 100%の信頼を持ってユーザーに全てが動くことを保証するわけではないということです。もし、iOS や Android のコードにバグがあれば、それらは見つからないでしょう。
 
 <img src="/docs/assets/p_tests-component.svg" alt=" " />
 
