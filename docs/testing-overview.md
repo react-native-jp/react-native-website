@@ -43,11 +43,11 @@ React Native はすぐに使える設定済みの二種類のツールがあり�
 
 > 他の学習資料についてもテスタブルなコードについての話題をより深く調べてみることもお勧めします。
 
-## Writing Tests
+## テストを書く
 
-After writing testable code, it’s time to write some actual tests! The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away—[more on mocks](#mocking) shortly. You can use Jest to write all types of tests featured in this guide.
+テストを描きやすいコードを書いた次に、実際にいくつかテストを書いてみましょう! React Native の初期状態のテンプレートは[Jest](https://jestjs.io)テストフレームワークを搭載しています。テンプレートは、モックや設定をひねらなくてもストレートな道筋であなたを生産的にするように、事前に環境が仕立てられたプリセットを含んでいます-[モックをより詳しく](#mocking)。このガイド上のあらゆる種類の機能テストは Jest を使います。
 
-> If you do test-driven development, you actually write tests first! That way, testability of your code is given.
+> テスト駆動開発をするなら、テストを最初に書きます！そうすれば、テスタビリティがコードに与えられます。
 
 ### Structuring Tests
 
