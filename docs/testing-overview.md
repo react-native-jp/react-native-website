@@ -31,17 +31,17 @@ description: このガイドはReact Native開発者に良いテストの書き�
 
 React Native はすぐに使える設定済みの二種類のツールがあります。: [ESLint](https://eslint.org/) `lint`のためのツールです。[Flow](https://flow.org/en/docs/) または、 [TypeScript](typescript)(Javascript にトランスパイル可能な型付き言語)、`Type checking`のためのツールです。
 
-## Writing Testable Code
+## テストのしやすいコードを書くこと
 
-To start with tests, you first need to write code that is testable. Consider an aircraft manufacturing process - before any model first takes off to show that all of its complex systems work well together, individual parts are tested to guarantee they are safe and function correctly. For example, wings are tested by bending them under extreme load; engine parts are tested for their durability; the windshield is tested against simulated bird impact.
+テストを始めるにあたって、まず最初に必要なことはテストのしやすいコードを書くことです。航空機を作るプロセスを考えてみてください。 - いかなるモデルの機体でも複雑なシステムが全て正しく動いている事を示すためにまず飛ばしてみる前に、個々のパーツが安全であり正しく機能している事を保証するためにテストされます。例えば、翼は著しく重い負荷によって曲がるかをテストし、エンジンのパーツは耐久性をテストし、フロントガラスはバードインパクトをシミュレートしたテストがされます。
 
-Software is similar. Instead of writing your entire program in one huge file with many lines of code, you write your code in multiple small modules that you can test more thoroughly than if you tested the assembled whole. In this way, writing testable code is intertwined with writing clean, modular code.
+ソフトウェアも似ています。全体のプログラムをたくさんの行のコードを巨大な一つのファイルに書く代わりに、組み立てられたコード全体をテストする事よりも徹底的にテストが可能な小さな複数のモジュールにコードを書きます。この意味で、テストのしやすいコードは簡潔かつモジュラーに組み合わされています。
 
-To make your app more testable, start by separating the view part of your app—your React components—from your business logic and app state (regardless of whether you use Redux, MobX or other solutions). This way, you can keep your business logic testing—which shouldn’t rely on your React components—independent of the components themselves, whose job is primarily rendering your app’s UI!
+アプリケーションをよりテストしやすくするには、React のコンポーネントのビューをロジックとステートから切り離すことから始めましょう（Redux, MobX その他どのようなソリューションを用いるとしてもです）。このようにして、ビジネスロジックに関するテストを、主にアプリケーションの UI 描画が責務となる React コンポーネントそれ自身と独立に保つことができます。
 
-Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. Your app’s logic would work without any React components at all!
+理論的には、全てのロジックとデータの取得をコンポーネントから移動させることができるはずです。こうすれば、コンポーネントは単独でレンダリングに注力されます。ステートは全体的にコンポーネントから独立するでしょう。アプリケーションのロジックはコンポーネントが一切存在しなくても動くはずです！
 
-> We encourage you to further explore the topic of testable code in other learning resources.
+> 他の学習資料についてもテスタブルなコードについての話題をより深く調べてみることもお勧めします。
 
 ## Writing Tests
 
