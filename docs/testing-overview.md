@@ -4,14 +4,13 @@ title: Testing
 author: Vojtech Novak
 authorURL: 'https://twitter.com/vonovak'
 description: このガイドはReact Native開発者に良いテストの書き方やどのようなテストを取り入れるべきかという、テストの背景にあるキーとなる概念を紹介します。
-
 ---
 
-As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
+コードが大きくなるにつれて、予期しない小さなエラーやエッジケースが大きなエラーになだれ込むことがあります。バグは悪いユーザーエクスペリエンスとなり、究極的にはビジネス機会の損失になり得ます。脆弱なプログラムを防ぐ一つの方法はコードを野に放つ前にテストを行うことです。
 
-In this guide, we will cover different, automated ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+このガイドでは、アプリケーションが様々かつ自動的な方法で、期待通りにアプリケーションが動いているかということを、静的に解析する事から End-to-End のテストの範囲で確かめます。
 
-<img src="/docs/assets/diagram_testing.svg" alt="Testing is a cycle of fixing, testing, and either passing to release or failing back into testing." />
+<img src="/docs/assets/diagram_testing.svg" alt="コードを直して、テストを行いテストがパスしてリリースするか失敗して最初のフローに戻るテストの一連の流れ" />
 
 ## Why Test
 
