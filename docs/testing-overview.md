@@ -134,9 +134,10 @@ React コンポーネントをテストするというのも、二つのこと�
 
 <img src="/docs/assets/p_tests-component.svg" alt=" " />
 
-### Testing User Interactions
+### ユーザーインタラクションのテスト
 
-Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
+UI を描画する以外にも、コンポーネントは`TextInput`の`onChangeText`、`Button`の`onPress`というようなイベントの操作をします。それらはイベントのコールバックやその他の関数を含むかもしれません。
+次の例を考えましょう。
 
 ```jsx
 function GroceryShoppingList() {
@@ -167,22 +168,22 @@ function GroceryShoppingList() {
 }
 ```
 
-When testing user interactions, test the component from the user perspective—what's on the page? What changes when interacted with?
+ユーザーインタラクションをテストするとき、ユーザーの視点からページに何があるのか、操作によって何が起きるかをテストしてください。
 
-As a rule of thumb, prefer using things users can see or hear:
+経験則として、ユーザーが見ることができるもの、聞くことができるものを使う事が好ましいです。
 
-- make assertions using rendered text or [accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties)
+- 書かれている文字や[accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties)にアサーションを行う
 
-Conversely, you should avoid:
+逆に避けるべき事:
 
-- making assertions on component props or state
-- testID queries
+- コンポーネントの props やステートにアサーションを行う事
+- testID のクエリ
 
-Avoid testing implementation details like props or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
+テストを通すことは出来るとしても props やステートの実装の細かい部分をテストすることは避けてください。それらはリファクタリング(例えば、あなたが、それらのいくつかをリネームしたい時やクラスコンポーネントを hooks で書き直したい時)によって壊れがちになり、コンポーネントをユーザーがどう操作出来るかについて使う事には向いていません。
 
-> React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+> React のクラスコンポーネントは特にインターナルなステートや props、イベントハンドラのような実装の細かい部分をテストしがちです。実装の細かい部分をテストするのは避け、コンポーネントの内部に依存する事を _難しくする_ Hooks を用いた関数コンポーネントを用いるのが好ましいです。
 
-Component testing libraries such as [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
+[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントをテストするライブラリは、API の適切な選択によってユーザーセントリックなテストを取り仕切ります。次の例では、`changeText`と`press`メソッドを持ち、ユーザーのコンポーネントに対する操作をシミュレートする`fireEvent`と、レンダリングされた`Text`ノードからマッチするものを探す`getAllByText`クエリファンクションを用いています。
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
@@ -197,11 +198,11 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
   fireEvent.press(getByText('Add the item to list'));
 
   const bananaElements = getAllByText('banana');
-  expect(bananaElements).toHaveLength(1); // expect 'banana' to be on the list
+  expect(bananaElements).toHaveLength(1); // 'banana' がリスト上に存在するはず
 });
 ```
 
-This example is not testing how some state changes when you call a function. It tests what happens when a user changes text in the `TextInput` and presses the `Button`!
+この例では、関数を呼び出した時にどうステートが変化するかという事はテストしていません。ユーザーが`TextInput`のテキストを変更して`Button`が押されると何が起こるのかをテストしています！
 
 ### Testing Rendered Output
 
