@@ -22,14 +22,14 @@ description: このガイドはReact Native開発者に良いテストの書き�
 
 最後になりますが大事なことに、テストが自動化されるにつれて、手動で<abbr title="Quality Assurance">QA</abbr>をテストするよりもかかる時間が少なくなり、貴重な時間が開放されます。
 
-## Static Analysis
+## 静的な解析
 
-The first step to improve your code quality is to start using static analysis tools. Static analysis checks your code for errors as you write it, but without running any of that code.
+コード品質改善の最初の一歩として、静的解析ツールを使いましょう。静的解析はコードを書くとコードを全く動かすことなくエラーを調べてくれます。
 
-- **Linters** analyze code to catch common errors such as unused code and to help avoid pitfalls, to flag style guide no-nos like using tabs instead of spaces (or vice versa, depending on your configuration).
-- **Type checking** ensures that the construct you’re passing to a function matches what the function was designed to accept, preventing passing a string to a counting function that expects a number, for instance.
+- **Linters** コードを解析して、使われていないコードが存在するというような馴染みのある過ちや、スペースの代わりに tab を使ってはいけないという例（その逆もありえます。あなたの設定次第です。）のように、スタイルガイドが禁止している書き方について目印をつけます。
+- **Type checking** 関数に渡しているデータ構造が、関数によってあらかじめ許容されているものと一致している事を保証します。例として、数値データが必要なカウントを行う関数に文字列データが入らないように保証します。
 
-React Native comes with two such tools configured out of the box: [ESLint](https://eslint.org/) for linting and [Flow](https://flow.org/en/docs/) for type checking. You can also use [TypeScript](typescript), which is a typed language that compiles to plain JavaScript.
+React Native はすぐに使える設定済みの二種類のツールがあります。: [ESLint](https://eslint.org/) `lint`のためのツールです。[Flow](https://flow.org/en/docs/) または、 [TypeScript](typescript)(Javascript にトランスパイル可能な型付き言語)、`Type checking`のためのツールです。
 
 ## Writing Testable Code
 
