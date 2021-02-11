@@ -99,18 +99,18 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 
 > Jest は[モックに関するサポート](https://jestjs.io/docs/en/mock-functions#mocking-modules)をあらゆる実装の関数レベルからモジュールレベルまで実現しています。
 
-## Integration Tests
+## 統合テスト
 
-When writing larger software systems, individual pieces of it need to interact with each other. In unit testing, if your unit depends on another one, you’ll sometimes end up mocking the dependency, replacing it with a fake one.
+大きなソフトウェアシステムを書く時、個々のプログラムが相互にやりとりする必要があります。単体テストでは、あるプログラムが他のプログラムに依存していても、結局、たびたび、それらをフェイクに置き換えて依存をモックにするでしょう。
 
-In integration testing, real individual units are combined (same as in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example, to mock communication with a weather service), but you'll need them much less than in unit testing.
+統合テストでは、実際の個々のユニットを組み合わせて（実際のアプリケーションと同じように）それらが期待通りに協調して動くことを保証するためのテストをまとめて行います。だからと言って、モッキングが必要でなくなるわけではありません。あなたはまだモック（例えば、天気情報の通信のモック）を必要とするかもしれませんが、単体テストの時より必要とする機会はずっと少ないでしょう。
 
-> Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
->
-> - Combines several modules of your app as described above
-> - Uses an external system
-> - Makes a network call to other application (such as the weather service API)
-> - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
+> 統合テストに関する用語の意味は必ずしも一貫性があるものではないことに注意してください。また、単体テストと統合テストの境界はいつでも明確とは限りません。このガイドにとってあなたのテストが統合テストを意味する時はテストが以下のような時です。
+
+> - 述べてきたようにアプリケーションが複数のモジュールの組み合わせになっている時
+> - 外部のシステムを使っている時
+> - （天気サービスの API のような）他のアプリケーションをネットワークから呼び出している時
+> - ファイルやデータベースの<abbr title="Input/Output">I/O</abbr>を行う時
 
 <img src="/docs/assets/p_tests-integration.svg" alt=" " />
 
