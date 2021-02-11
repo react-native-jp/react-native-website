@@ -270,4 +270,4 @@ E2E テストに利用できるツールは複数あります。: React Native C
 
 ---
 
-_This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
+_このガイドの原文は全て[Vojtech Novak](https://twitter.com/vonovak)によって書かれ寄稿されました。_
