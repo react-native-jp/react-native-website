@@ -204,11 +204,11 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 この例では、関数を呼び出した時にどうステートが変化するかという事はテストしていません。ユーザーが`TextInput`のテキストを変更して`Button`が押されると何が起こるのかをテストしています！
 
-### Testing Rendered Output
+### 描画結果のテスト
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is an advanced kind of testing enabled by Jest. It is a very powerful and low-level tool, so extra attention is advised when using it.
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jest による発展的なテストを可能にするものです。とても強力で低レベルなツールであり、使うと特別な注意を促してくれます。
 
-A "component snapshot" is a JSX-like string created by a custom React serializer built into Jest. This serializer lets Jest translate React component trees to string that's human-readable. Put another way: a component snapshot is a textual representation of your component’s render output _generated_ during a test run. It may look like this:
+コンポーネントのスナップショットは Jest に組み込まれているカスタムされた React のシリアライザによって作られる JSX のような文字列です。このシリアライザは Jest に React のコンポーネントツリーを人間が読めるような文字列に翻訳させます。言い換えるとコンポーネントのスナップショットはテストを走らせる間に _生成された_ 結果を描画したコンポーネントをテキストで再表現したものです。それは以下のような見た目になっています。
 
 ```jsx
 <Text
@@ -222,17 +222,17 @@ A "component snapshot" is a JSX-like string created by a custom React serializer
 </Text>
 ```
 
-With snapshot testing, you typically first implement your component and then run the snapshot test. The snapshot test then creates a snapshot and saves it to a file in your repo as a reference snapshot. **The file is then committed and checked during code review**. Any future changes to the component render output will change its snapshot, which will cause the test to fail. You then need to update the stored reference snapshot for the test to pass. That change again needs to be committed and reviewed.
+スナップショットのテストを用いるとき、典型的には最初にコンポーネントを実装して、その後にスナップショットテストを実行します。スナップショットテストはあなたのレポジトリやファイルに参照用のスナップショットとしてスナップショットを作成し保存します。 **そのファイルはコミットし、コードレビューの合間にチェックします**。コンポーネントの描画の出力結果に関するいかなる変更もスナップショットを変化させ、テストを失敗させます。そうした時、あなたはテストをパスさせるために保存されている参照用のスナップショットを修正する必要があります。それらの変更をもう一度コミットし、レビューする必要があります。
 
-Snapshots have several weak points:
+スナップショットにはいくつか弱点があります。
 
-- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can quickly become hard to understand and their added value becomes low.
-- When snapshot is created, at that point it is considered to be correct-even in the case when the rendered output is actually wrong.
-- When a snapshot fails, it's tempting to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
+- あなたのようなデベロッパーやレビュアーにとって、意図された変更なのか、はたまた、バグの証拠なのかを区別するのが難しいのです。特に、大きなスナップショットはすぐに理解が難しくなり、それらを導入する価値が低くなります。
+- スナップショットが作られた時点では、出力結果が実際には間違っているケースでも正しいものと同様に扱われてしまうこと。
+- スナップショットが失敗した時に、その変更が意図通りのものなのかを適切に検証をせずに Jest の`--updateSnapshot`オプションを利用して更新したい誘惑に駆られます。ある程度開発者としての自制心が必要です。
 
-Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+スナップショットそれ自体はロジックが正しいかを保証しません。それらはただ単に、予期しないような変更が発生することへの予防に役に立ち、テスト中の React ツリーのコンポーネントが期待通りに props(styles などの props)を受け取っているかをチェックするためのものです。
 
-We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
+わたしたちは、小さなスナップショットだけを用いる事を推奨します。(詳しくは[`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)) もし、あなたが二つの React のコンポーネントのステート間の _変更_ をテストしたいなら、[`snapshot-diff`](https://github.com/jest-community/snapshot-diff)を使ってください。疑わしい時は、前のパラグラフで述べたような明示的に期待する検証を好みましょう。
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
