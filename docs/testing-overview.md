@@ -83,21 +83,21 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 
 <img src="/docs/assets/p_tests-unit.svg" alt=" " />
 
-### Mocking
+### モッキング
 
-Sometimes, when your tested objects have external dependencies, you’ll want to “mock them out.” “Mocking” is when you replace some dependency of your code with your own implementation.
+ときどき、テストをするオブジェクトは外部のコードに依存を持っていて、あなたはそれらをモックにしたいと思うでしょう。モッキングはコードの外部への依存部分を任意の実装で置き換えることです。
 
-> Generally, using real objects in your tests is better than using mocks but there are situations where this is not possible. For example: when your JS unit test relies on a native module written in Java or Objective-C.
+> 一般的にテストにはモックを使うよりも実際のオブジェクトが使われることがことが好ましいですが、それが不可能なことがあります。例えば、あなたの JS のユニットテストが Java や Objective-C で書かれているネイティブモジュールに依存している場合など。
 
-Imagine you’re writing an app that shows the current weather in your city and you’re using some external service or other dependency that provides you with the weather information. If the service tells you that it’s raining, you want to show an image with a rainy cloud. You don’t want to call that service in your tests, because:
+天気の情報を提供している外部のサービスやその他の依存コードを使って現在の街の天気を表示するアプリケーションを書くことを想像してみましょう。もしサービスが雨だと教えてくれるとき、雨雲の画像を表示したいとします。あなたはテストの中でそれらのサービスを呼び出したくないはずです。なぜならば、
 
-- It could make the tests slow and unstable (because of the network requests involved)
-- The service may return different data every time you run the test
-- Third party services can go offline when you really need to run tests!
+- テストが遅くなり不安定になりえるから（ネットワークリクエストに巻き込まれて）
+- サービスがテストのたびに違うデータを返してくるかもしれない
+- サードパーティのサービスに繋がらない時でもテストを動かす必要があるから
 
-Therefore, you can provide a mock implementation of the service, effectively replacing thousands of lines of code and some internet-connected thermometers!
+それゆえに、あなたは何千行ものコードとインターネットに繋がれた温度計を効果的に置き換える、サービス実装のモックを注入しえるのです！
 
-> Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules) from function level all the way to module level mocking.
+> Jest は[モックに関するサポート](https://jestjs.io/docs/en/mock-functions#mocking-modules)をあらゆる実装の関数レベルからモジュールレベルまで実現しています。
 
 ## Integration Tests
 
