@@ -49,9 +49,9 @@ React Native はすぐに使える設定済みの二種類のツールがあり�
 
 > テスト駆動開発をするなら、テストを最初に書きます！そうすれば、テスタビリティがコードに与えられます。
 
-### Structuring Tests
+## テストを構成する
 
-Your tests should be short and ideally test only one thing. Let's start with an example unit test written with Jest:
+あなたのテストは短く理想的には一つのことをテストするべきです。Jest で書かれたテストを例にとって始めましょう。
 
 ```js
 it('given a date in the past, colorForDueDate() returns red', () => {
@@ -59,19 +59,19 @@ it('given a date in the past, colorForDueDate() returns red', () => {
 });
 ```
 
-The test is described by the string passed to the [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) function. Take good care writing the description so that it’s clear what is being tested. Do your best to cover the following:
+このテストは[`it`](https://jestjs.io/docs/en/api#testname-fn-timeout)関数に渡す文字列で表現されます。これが何をテストするものなのか明確になるように気をつけて記述をしてください。以下のことを網羅することにベストを尽くしましょう。
 
-1. **Given** - some precondition
-2. **When** - some action executed by the function that you’re testing
-3. **Then** - the expected outcome
+1. **Given** - いくつかの前提となる条件
+2. **When** - テスト対象の関数によって実行されるいくつかの挙動
+3. **Then** - 予期される結果
 
-This is also known as AAA (Arrange, Act, Assert).
+これらはまた AAA(Arrange, Act, Assert)としても知られています。
 
-Jest offers [`describe`](https://jestjs.io/docs/en/api#describename-fn) function to help structure your tests. Use `describe` to group together all tests that belong to one functionality. Describes can be nested, if you need that. Other functions you'll commonly use are [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) or [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) that you can use for setting up the objects you're testing. Read more in the [Jest api reference](https://jestjs.io/docs/en/api).
+Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/docs/en/api#describename-fn) 関数を提供します。一つの機能性に属する全てのテストをグループにまとめるのに`describe`を使用してください。describe 関数は必要であればネストして構いません。その他の関数でよく使われるものには[`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) や [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) があり、あなたがテストしたいオブジェクトの設定をするために使えます。より詳しくは[Jest api reference](https://jestjs.io/docs/en/api)を読んでください。
 
-If your test has many steps or many expectations, you probably want to split it into multiple smaller ones. Also, ensure that your tests are completely independent of one another. Each test in your suite must be executable on its own without first running some other test. Conversely, if you run all your tests together, the first test must not influence the output of the second one.
+もしテストが多くのステップ、多くの結果をテストする時に、もっと小さくそれらを分けたくなるかもしれません。そのようであれば、あなたのテストケースは他の機能から完全に独立することを保証してください。テストスイートの中のそれぞれのテストは他のテストケースが走り始めなくても、単体で実行できるようにしなければなりません。逆の見方をすると、全てのテストを一度に行う場合は、最初のテストが次のテストの結果に影響を与えてはいけません。
 
-Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite. Think of a failed test as of a _good thing!_ When a test fails, it often means something is not right. This gives you an opportunity to fix the problem before it impacts the users.
+最後に、開発者として私たちはグレイトにコードが動いてクラッシュしないことを好みます。テストには、よく反対のことが起きます。テストが失敗することを _良いこと_ だと考えましょう！テストが失敗する時、多くの場合何かが間違っていることを意味します。それはユーザーに影響を与える前に問題を直す機会を与えてくれているのです。
 
 ## Unit tests
 
