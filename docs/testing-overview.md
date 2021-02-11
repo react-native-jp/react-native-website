@@ -256,9 +256,9 @@ E2E テストに利用できるツールは複数あります。: React Native C
 
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
-## Summary
+## サマリー
 
-We hope you enjoyed reading and learned something from this guide. There are many ways you can test your apps. It may be hard to decide what to use at first. However, we believe it all will make sense once you start adding tests to your awesome React Native app. So what are you waiting for? Get your coverage up!
+私たちはあなたがこのガイドを読んで何かを学び楽しんでくれたことを願います。アプリケーションをテストできるたくさん方法があります。何を最初に使えばいいか決めるのは難しいかもしれません。しかしながら、その全てがあなたの素晴らしい React Native のアプリケーションに加わった途端に意味を為すと信じています。何を待つことがあるでしょうか？今すぐカバレッジを上げましょう！
 
 ### Links
 
