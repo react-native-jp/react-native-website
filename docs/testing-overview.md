@@ -236,23 +236,23 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
-## End-to-End Tests
+## End-to-End テスト
 
-In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
+End-to-End テスト(E2E テスト)はユーザー視点でデバイス上(あるいはシミュレータやエミュレータ)で期待通りにアプリケーションが動いているか検証します。
 
-This is done by building your app in the release configuration and running the tests against it. In E2E tests, you no longer think about React components, React Native APIs, Redux stores or any business logic. That is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
+これはアプリケーションがリリース設定でビルドされたものに対してテストを実行することによって実現します。E2E テストでは、もはや React コンポーネント、React Native の API、Redux の store やビジネスロジックについては考えません。ビジネスロジックについて考える事は E2E テストの目的ではなく、それらは E2E のテストの間アクセスすらできません。
 
-Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can _actually_ tap buttons or insert text into `TextInputs` the same way a real user would. Then you can make assertions about whether or not a certain element exists in the app’s screen, whether or not it’s visible, what text it contains, and so on.
+そのかわり、E2E テストライブラリはアプリケーション上の画面の中から要素を探しだし操作することを可能にします。例えば、 *実際に*　現実の世界のユーザーと同等の手段で、ボタンをタップしたり、テキストを`TextInputs`に挿入することができます。それからアプリケーションのスクリーンのなかに特定の要素が存在するかどうか、見えているかどうか、どんなテキストを含むかなどを、検証することができます。
 
-E2E tests give you the highest possible confidence that part of your app is working. The tradeoffs include:
+E2E テストはアプリケーションが部分的に動く事について最も高い信頼を与えてくれます。以下のようなトレードオフはあります。
 
-- writing them is more time consuming compared to the other types of tests
-- they are slower to run
-- they are more prone to flakiness (a "flaky" test is a test which randomly passes and fails without any change to code)
+- 他のテスト手段に比べて記述に多くの時間がかかります。
+- 実行が比較的遅いです。
+- 結果が"フランキー"(まばら)になる傾向があります("フランキー"テストとはコードが同一でもランダムにパスしたり失敗したりするテストのことです)
 
-Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
+E2E テストはアプリケーションにとって生命線となる機能で使ってください。: 認証のフロー、重要な機能、決済、などです。アプリケーションの死活にかかわらない機能はより速い JS のテストを使いましょう。テストを増やすに連れて、信頼は増しますが、メンテナンスやテストの実行により多くの時間をかけることにもなります。トレードオフを考えながらあなたにとって何がベストであるかを決めてください。
 
-There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
+E2E テストに利用できるツールは複数あります。: React Native Community においては、[Detox](https://github.com/wix/detox/)が人気のフレームワークで React Native のアプリケーションのために仕立てられています。その他にも iOS や Android アプリにおいて人気のあるライブラリとして[Appium](http://appium.io/)があります。
 
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
