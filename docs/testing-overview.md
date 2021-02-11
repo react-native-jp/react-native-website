@@ -73,13 +73,13 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 
 最後に、開発者として私たちはグレイトにコードが動いてクラッシュしないことを好みます。テストには、よく反対のことが起きます。テストが失敗することを _良いこと_ だと考えましょう！テストが失敗する時、多くの場合何かが間違っていることを意味します。それはユーザーに影響を与える前に問題を直す機会を与えてくれているのです。
 
-## Unit tests
+## 単体テスト
 
-Unit tests cover the smallest parts of code, like individual functions or classes.
+単体テストは分離された関数やクラスのようにコードの最も小さな単位をカバーします。
 
-When the object being tested has any dependencies, you’ll often need to mock them out, as described in the next paragraph.
+テストされたオブジェクトが何かに依存する時、詳細は次のパラグラフで説明しますが、よくそれらをモックにする必要がでてきます。
 
-The great thing about unit tests is that they are quick to write and run. Therefore, as you work, you get fast feedback about whether your tests are passing. Jest even has an option to continuously run tests that are related to code you’re editing: [Watch mode](https://jestjs.io/docs/en/cli#watch).
+単体テストの偉大な点は早く書けて早く実行できることです。ゆえに、作業の最中でもすぐにテストが通るかどうかについて知ることができます。Jest は編集中のコードに連動して継続的にテストを走らせるオプションを持っています。: [Watch mode](https://jestjs.io/docs/en/cli#watch)
 
 <img src="/docs/assets/p_tests-unit.svg" alt=" " />
 
