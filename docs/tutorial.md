@@ -3,13 +3,13 @@ id: tutorial
 title: 基礎を学ぶ
 ---
 
-React NativeはReactに似ていますが、ネイティブコンポーネントをウェブコンポーネントの代わりに使用します。つまり、React Nativeの基礎を理解する為には、Reactの知識 (JSX, コンポーネント、`state`, `props` 等)が必須になります。もし既にReactの知識を持っていたとしても、ネイティブコンポーネント等、React Native独自の仕様を学ぶ必要があります。このチュートリアルはReactの予備知識を問わず、全ての方を対象としています。
+React Native は React に似ていますが、ネイティブコンポーネントをウェブコンポーネントの代わりに使用します。つまり、React Native の基礎を理解する為には、React の知識 (JSX, コンポーネント、`state`, `props` 等)が必須になります。もし既に React の知識を持っていたとしても、ネイティブコンポーネント等、React Native 独自の仕様を学ぶ必要があります。このチュートリアルは React の予備知識を問わず、全ての方を対象としています。
 
 それでは始めましょう。
 
 ## Hello World
 
-まずは慣例に従って、"Hello world!"とだけ表示するアプリを作ってみましょう。
+まずは慣例に従って、"Hello world!" とだけ表示するアプリを作ってみましょう。
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
@@ -30,14 +30,14 @@ const HelloWorldApp = () => {
 export default HelloWorldApp;
 ```
 
-Webシュミレーターで興味の向くままにいじってみましょう。もしくは、そのまま `App.js` に貼り付けて本物のアプリを作成することもできます。
+Web シュミレーターで興味の向くままにいじってみましょう。もしくは、そのまま `App.js` に貼り付けて本物のアプリを作成することもできます。
 
 ## 何が起こっているの？
 
 1. まずは `JSX` を使用できるようにする為に `React` をインポートします。これらは各プラットフォームのネイティブコンポーネントに変換されます。
 2. 二行目では `Text` と `View` を `react-native` からインポートしています。
 
-次に `HelloWorldApp` 関数があります。これは [関数コンポーネント](https://ja.reactjs.org/docs/components-and-props.html#function-and-class-components) と呼ばれ、Web 上のReactと同じように動作します。この関数は、いくつかのスタイルを持つ `View` コンポーネントとその子要素としての `Text` を返却します。
+次に `HelloWorldApp` 関数があります。これは [関数コンポーネント](https://ja.reactjs.org/docs/components-and-props.html#function-and-class-components) と呼ばれ、Web 上の React と同じように動作します。この関数は、いくつかのスタイルを持つ `View` コンポーネントとその子要素としての `Text` を返却します。
 
 `Text` コンポーネントはテキストを表示し、`View` コンポーネントはコンテナを表示します。コンテナはいくつかのスタイリングがされています。一つづつ見てみましょう。
 
@@ -47,13 +47,13 @@ Webシュミレーターで興味の向くままにいじってみましょう�
 
 いくつか JavaScript とは思えない文法があったかもしれません。大丈夫です、_これが最先端です_。
 
-ます、ES2015 (ES6) は、現在では公式の標準規格の一部となっているJavaScriptの改良セットですが、まだいくつかのブラウザでは非対応の為、使用が避けられることも多いです。React NativeはES2015をサポートしている為、互換性を気にせず使用できます。上記の例の `import`, `from`, `export`, `const` 等は全てES2015の機能です、もしES2015に慣れていない場合は。このチュートリアルのようなサンプルコードを読むことで、ES2015の機能を理解できるでしょう。もし必要であれば、 [この](https://babeljs.io/learn-es2015/) ページでES2015の機能の概要を見ることができます。
+ます、ES2015 (ES6) は、現在では公式の標準規格の一部となっている JavaScript の改良セットですが、まだいくつかのブラウザでは非対応の為、使用が避けられることも多いです。React Native はES2015 をサポートしている為、互換性を気にせず使用できます。上記の例の `import`, `from`, `export`, `const` 等は全て ES2015 の機能です、もし ES2015 に慣れていない場合は。このチュートリアルのようなサンプルコードを読むことで、ES2015 の機能を理解できるでしょう。もし必要であれば、 [この](https://babeljs.io/learn-es2015/) ページでES2015の機能の概要を見ることができます。
 
-もう一はこのコード `<View><Text>Hello world!</Text></View>`. これはJSXと呼ばれ、JavaScriptの中にXMLを埋め込むための構文です。 多くのフレームワークではマークアップの中に特殊なテンプレート言語を使用することができます。対して、Reactではこれが逆です。JSXでは、マークアップをコードの中に記述できます。HTMLのように見えますが、`<div>`や`<span>`などのウェブコンポーネントの代わりにReactコンポーネントを使用します。この例では、`<Text>`はテキストを表示する[コアコンポーネント](intro-react-native-components)で、`View`は`<div>`や`<span>`と似た役割です。
+もう一はこのコード `<View><Text>Hello world!</Text></View>`. これは JSX と呼ばれ、JavaScriptの 中に XML を埋め込むための構文です。 多くのフレームワークではマークアップの中に特殊なテンプレート言語を使用することができます。対して、React ではこれが逆です。JSX では、マークアップをコードの中に記述できます。HTML のように見えますが、`<div>`や`<span>`などのウェブコンポーネントの代わりに React コンポーネントを使用します。この例では、`<Text>`はテキストを表示する[コアコンポーネント](intro-react-native-components)で、`View`は`<div>`や`<span>`と似た役割です。
 
 ## コンポーネント
 
-この例では `HelloWorldApp` という新しいコンポーネントを定義しています。React Nativeアプリの開発中、あなたはたくさんのコンポーネントを作成することでしょう。スクリーンで見る全てのものは何かしらのコンポーネントです。
+この例では `HelloWorldApp` という新しいコンポーネントを定義しています。React Native アプリの開発中、あなたはたくさんのコンポーネントを作成することでしょう。スクリーンで見る全てのものは何かしらのコンポーネントです。
 
 ## Props
 
@@ -91,21 +91,21 @@ const LotsOfGreetings = () => {
 export default LotsOfGreetings;
 ```
 
-`name` を `prop` として使用すると、`Greeting` コンポーネントをカスタマイズすることができ、一つ一つのGreeting(挨拶)に再利用できます。 この例では、JSXのGreetingコンポーネントも使用しています。このようなことができる力こそが、Reactをクールにしているのです。
+`name` を `prop` として使用すると、`Greeting` コンポーネントをカスタマイズすることができ、一つ一つの Greeting (挨拶)に再利用できます。 この例では、JSX のGreeting コンポーネントも使用しています。このようなことができる力こそが、Reactをクールにしているのです。
 
 もう一つの注目すべきポイントは、`View` コンポーネントです。`View` は、他のコンポーネントのコンテナとして、スタイルやレイアウトを制御するのに役立ちます。
 
-`props` と基本的な[`Text`](text.md)、[`Image`](image.md)、や[`View`](view.md)コンポーネントを使えば、さまざまな静的な画面を構築することができます。アプリを時間の経過とともに変化させるには、Stateについて学ぶ必要があります。
+`props` と基本的な[`Text`](text.md)、[`Image`](image.md)、や[`View`](view.md)コンポーネントを使えば、さまざまな静的な画面を構築することができます。アプリを時間の経過とともに変化させるには、State について学ぶ必要があります。
 
 ## State
 
-[読み取り専用](https://reactjs.org/docs/components-and-props.html#props-are-read-only) で改変すべきでない `props` と違って、 `state` は、Reactコンポーネントユーザーのアクション、ネットワークのレスポンスや時間の経過とともに出力を変化させることを可能にします。
+[読み取り専用](https://reactjs.org/docs/components-and-props.html#props-are-read-only) で改変すべきでない `props` と違って、 `state` は、React コンポーネントユーザーのアクション、ネットワークのレスポンスや時間の経過とともに出力を変化させることを可能にします。
 
-#### stateとpropsの違い
+#### state とprops の違い
 
-Reactコンポーネントでは、`props` は親コンポーネントから子コンポーネントに渡す変数です。同様に、`state` も変数ですが、パラメータとして渡されるのではなく、コンポーネントが内部で初期化して管理するという違いがあります。
+React コンポーネントでは、`props` は親コンポーネントから子コンポーネントに渡す変数です。同様に、`state` も変数ですが、パラメータとして渡されるのではなく、コンポーネントが内部で初期化して管理するという違いがあります。
 
-#### ReactとReact Nativeではstateの取り扱いに違いはあるのか？
+#### React と React Native では state の取り扱いに違いはあるのか？
 
 <div className="two-columns">
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
 
 </div>
 
-上記の通り、[React](https://reactjs.org/docs/state-and-lifecycle.html) とReact Nativeの`state` に違いはありません。 [hooks](https://reactjs.org/docs/hooks-intro.html) を使用して`state`を管理することができます。
+上記の通り、[React](https://reactjs.org/docs/state-and-lifecycle.html) と React Native の`state` に違いはありません。 [hooks](https://reactjs.org/docs/hooks-intro.html) を使用して`state`を管理することができます。
 
 下記の例では先程の例を`class`を使って表現しています。
 
