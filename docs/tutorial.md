@@ -37,7 +37,7 @@ Webシュミレーターで興味の向くままにいじってみましょう�
 1. まずは `JSX` を使用できるようにする為に `React` をインポートします。これらは各プラットフォームのネイティブコンポーネントに変換されます。
 2. 二行目では `Text` と `View` を `react-native` からインポートしています。
 
-次に `HelloWorldApp` 関数があります。これは [関数コンポーネント](https://reactjs.org/docs/components-and-props.html#function-and-class-components) と呼ばれ、Web上のReactと同じように動作します。この関数は、いくつかのスタイルを持つ `View` コンポーネントとその子要素としての `Text` を返却します。
+次に `HelloWorldApp` 関数があります。これは [関数コンポーネント](https://ja.reactjs.org/docs/components-and-props.html#function-and-class-components) と呼ばれ、Web 上のReactと同じように動作します。この関数は、いくつかのスタイルを持つ `View` コンポーネントとその子要素としての `Text` を返却します。
 
 `Text` コンポーネントはテキストを表示し、`View` コンポーネントはコンテナを表示します。コンテナはいくつかのスタイリングがされています。一つづつ見てみましょう。
 
