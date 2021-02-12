@@ -3,9 +3,9 @@ id: button
 title: Button
 ---
 
-A basic button component that should render nicely on any platform. Supports a minimal level of customization.
+どのプラットフォームでも動くであろう基本的なボタンコンポーネント。最低限のカスタムしかサポートしていません。
 
-If this button doesn't look right for your app, you can build your own button using [TouchableOpacity](touchableopacity) or [TouchableWithoutFeedback](touchablewithoutfeedback). For inspiration, look at the [source code for this button component](https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js). Or, take a look at the [wide variety of button components built by the community](https://js.coach/?menu%5Bcollections%5D=React%20Native&page=1&query=button).
+もしこのボタンに満足できないなら、[TouchableOpacity](touchableopacity) or [TouchableWithoutFeedback](touchablewithoutfeedback) を使用してオリジナルを作ってみましょう。インスピレーションを得るために [`Button` コンポーネントのソスコード](https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js)を覗いてみるのもいいかもしれません。 もしくは [コミュニティー有志によるボタン](https://js.coach/?menu%5Bcollections%5D=React%20Native&page=1&query=button) もチェックしてみましょう。
 
 ```jsx
 <Button
@@ -16,7 +16,7 @@ If this button doesn't look right for your app, you can build your own button us
 />
 ```
 
-## Example
+## 例
 
 ```SnackPlayer name=Button%20Example
 import React from 'react';
@@ -104,13 +104,13 @@ export default App;
 
 ---
 
-# Reference
+# レファレンス
 
 ## Props
 
 ### <div class="label required basic">Required</div>**`onPress`**
 
-Handler to be called when the user taps the button.
+ユーザーがボタンをタップしたときに呼び出されるハンドラ。
 
 | Type                               |
 | ---------------------------------- |
@@ -120,8 +120,7 @@ Handler to be called when the user taps the button.
 
 ### <div class="label required basic">Required</div>**`title`**
 
-Text to display inside the button. On Android the given title will be converted to the uppercased form.
-
+ボタンの内側に表示するテキスト。Android ではタイトルは大文字に変換されます。
 | Type   |
 | ------ |
 | string |
@@ -130,7 +129,7 @@ Text to display inside the button. On Android the given title will be converted 
 
 ### `accessibilityLabel`
 
-Text to display for blindness accessibility features.
+ブラインドアクセシビリティ機能のために表示するテキスト。
 
 | Type   |
 | ------ |
@@ -140,7 +139,7 @@ Text to display for blindness accessibility features.
 
 ### `color`
 
-Color of the text (iOS), or background color of the button (Android).
+内側のテキストの色 (iOS)、ないしはボタンのバックグラウンドカラー (Android).
 
 | Type            | Default                                                                                                                                                                                                                                   |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,7 +149,7 @@ Color of the text (iOS), or background color of the button (Android).
 
 ### `disabled`
 
-If `true`, disable all interactions for this component.
+`true` の場合、全てのインタラクション無効化します。
 
 | Type | Default |
 | ---- | ------- |
@@ -160,7 +159,7 @@ If `true`, disable all interactions for this component.
 
 ### `hasTVPreferredFocus` <div class="label tv">TV</div>
 
-TV preferred focus.
+TV に合った焦点。
 
 | Type | Default |
 | ---- | ------- |
@@ -170,7 +169,7 @@ TV preferred focus.
 
 ### `nextFocusDown` <div class="label android">Android</div><div class="label tv">TV</div>
 
-Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
+ユーザーが下に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown)を参照してください。
 
 | Type   |
 | ------ |
@@ -180,7 +179,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 ### `nextFocusForward` <div class="label android">Android</div><div class="label tv">TV</div>
 
-Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
+ユーザーが前方に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward)を参照してください。
 
 | Type   |
 | ------ |
@@ -190,7 +189,7 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 ### `nextFocusLeft` <div class="label android">Android</div><div class="label tv">TV</div>
 
-Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
+ユーザーが左に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft)を参照してください。
 
 | Type   |
 | ------ |
@@ -200,7 +199,7 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 ### `nextFocusRight` <div class="label android">Android</div><div class="label tv">TV</div>
 
-Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
+ユーザーが右に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight)を参照してください。
 
 | Type   |
 | ------ |
@@ -210,7 +209,7 @@ Designates the next view to receive focus when the user navigates right. See the
 
 ### `nextFocusUp` <div class="label android">Android</div><div class="label tv">TV</div>
 
-Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
+ユーザーが上に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp)を参照してください。
 
 | Type   |
 | ------ |
@@ -220,7 +219,7 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+エンドツーエンドテスト用の ID。
 
 | Type   |
 | ------ |
@@ -230,7 +229,7 @@ Used to locate this view in end-to-end tests.
 
 ### `touchSoundDisabled` <div class="label android">Android</div>
 
-If `true`, doesn't play system sound on touch.
+`true` の場合、クリックサウンドを再生しません。
 
 | Type    | Default |
 | ------- | ------- |
