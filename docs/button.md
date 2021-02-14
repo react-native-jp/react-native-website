@@ -209,7 +209,7 @@ TV に合った焦点。
 
 ### `nextFocusUp` <div class="label android">Android</div><div class="label tv">TV</div>
 
-ユーザーが上に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp)を参照してください。
+ユーザーが上に移動したときにフォーカスを受ける次のビューを指定します。[Android ドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp)を参照してください。
 
 | Type   |
 | ------ |
