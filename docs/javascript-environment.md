@@ -16,7 +16,7 @@ React Native を使用する場合、JavaScript を主に2つの環境で使用�
 
 シンタックストランスフォーマーはインタプリタのサポートを待たずに新しい JavaScript 構文を使用できるようにしてくれます。
 
-React Native は [Babel](https://babeljs.io) を同梱します。Babel についての詳細は、 [Babel ドキュメンテーション](https://babeljs.io/docs/plugins/#transform-plugins) を御覧ください。
+React Native は [Babel](https://babeljs.io) を同梱します。Babel についての詳細は、 [Babel のドキュメンテーション](https://babeljs.io/docs/plugins/#transform-plugins)を御覧ください。
 
 全てのトランスフォーメーションのリストは [metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset) で確認できます。
 
