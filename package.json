@@ -8,8 +8,8 @@
   "scripts": {
     "postinstall": "yarn update-lock",
     "update-lock": "npx yarn-deduplicate",
-    "lint": "node lint_exec.js",
-    "_text_lint": "textlint"
+    "lint": "textlint --cache $(git diff master --name-only)",
+    "lint:fix": "npm run lint -- --fix"
   },
   "husky": {
     "hooks": {
