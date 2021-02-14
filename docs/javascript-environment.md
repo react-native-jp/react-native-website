@@ -8,7 +8,7 @@ title: JavaScript 実行環境
 React Native を使用する場合、JavaScript を主に2つの環境で使用することになります。
 
 - ほとんどの場合、React Native は、Safari を動かしている JavaScript エンジンである [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) を使用します。iOS アプリには書き込み可能な実行メモリがないため、iOS では JavaScriptCore は JIT を使用しないことに注意してください。
-- Chromeデバッグを使用している場合、すべての JavaScript コードは Chrome 内で実行され、WebSocketを介してネイティブコードと通信します。Chrome は JavaScript エンジンとして [V8](https://v8.dev/) を使用します。
+- Chrome デバッグを使用している場合、すべての JavaScript コードは Chrome 内で実行され、WebSocket を介してネイティブコードと通信します。Chrome は JavaScript エンジンとして [V8](https://v8.dev/) を使用します。
 
 これらの環境は非常に似ていますが、いくつかの不整合が発生する場合があります。将来的には他の JavaScript エンジンを使用するになるでしょうから、ランタイムの仕様に依存するのは避けた方が良いでしょう。
 
