@@ -169,7 +169,7 @@ TV に合った焦点。
 
 ### `nextFocusDown` <div class="label android">Android</div><div class="label tv">TV</div>
 
-ユーザーが下に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown)を参照してください。
+ユーザーが下に移動したときにフォーカスを受ける次のビューを指定します。[Android ドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown)を参照してください。
 
 | Type   |
 | ------ |
