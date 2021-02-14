@@ -199,7 +199,7 @@ TV に合った焦点。
 
 ### `nextFocusRight` <div class="label android">Android</div><div class="label tv">TV</div>
 
-ユーザーが右に移動したときにフォーカスを受ける次のビューを指定します。[Androidドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight)を参照してください。
+ユーザーが右に移動したときにフォーカスを受ける次のビューを指定します。[Android ドキュメント](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight)を参照してください。
 
 | Type   |
 | ------ |
