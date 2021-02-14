@@ -9,18 +9,17 @@
     "postinstall": "yarn update-lock",
     "update-lock": "npx yarn-deduplicate",
     "lint": "textlint --cache $(git diff master --name-only)",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "p": "pretty-quick --staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": [
-        "pretty-quick --staged",
-        "lint-staged"
-      ]
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.md": "textlint"
+    "*.md": "textlint",
+    "*.@(ts|tsx|js|jsx)": "pretty-quick --staged"
   },
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "^3.1.1",
