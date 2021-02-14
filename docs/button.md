@@ -104,7 +104,7 @@ export default App;
 
 ---
 
-# レファレンス
+# リファレンス
 
 ## Props
 
