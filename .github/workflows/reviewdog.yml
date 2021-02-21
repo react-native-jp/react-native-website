@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: install dependencies
-        run: yarn --prefer-offline
+        run: yarn --prefer-offline --frozen-lockfile
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
