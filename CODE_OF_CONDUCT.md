@@ -8,6 +8,9 @@ of conduct may be banned from the community.
 
 Our open source community strives to:
 
+ ふぇわじおfjをいあじょいふぇjわおいふぇあwふぇわえいお
+JQUERY　JQUERY
+
 * **Be friendly and patient.**
 * **Be welcoming:** We strive to be a community that welcomes and supports
   people of all backgrounds and identities. This includes, but is not limited to
