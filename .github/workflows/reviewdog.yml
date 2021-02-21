@@ -38,4 +38,4 @@ jobs:
         env:
           github_token: ${{ secrets.github_token }}
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
-        run: $(npm bin)/textlint ${{ steps.get_file_changes.outputs.files }} | reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review
+        run: $(npm bin)/textlint ${{ steps.get_file_changes.outputs.files }} | reviewdog -reporter=github-pr-review
