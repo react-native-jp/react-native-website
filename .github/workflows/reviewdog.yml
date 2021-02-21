@@ -29,7 +29,7 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
-      - name: reviewdog install
+      - name: lint
         env:
           github_token: ${{ secrets.github_token }}
-          run: yarn lint
+        run: yarn lint
