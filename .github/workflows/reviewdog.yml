@@ -33,7 +33,7 @@ jobs:
         id: get_file_changes
         uses: dorner/file-changes-action@v1.2.0
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.github_token }}
           plaintext: true
       - name: Echo file changes
         run: |
@@ -41,4 +41,4 @@ jobs:
       - name: lint
         env:
           github_token: ${{ secrets.github_token }}
-        run: yarn lint
+        run: $(npm bin)/textlint ${{ steps.get_file_changes.outputs.files }}
