@@ -7,9 +7,7 @@ all and expect our code of conduct to be honored. Anyone who violates this code
 of conduct may be banned from the community.
 
 Our open source community strives to:
- っっっf   
-fff
- JQUERY
+
 * **Be friendly and patient.**
 * **Be welcoming:** We strive to be a community that welcomes and supports
   people of all backgrounds and identities. This includes, but is not limited to
