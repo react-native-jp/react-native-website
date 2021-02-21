@@ -17,9 +17,9 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
-          with:
-            path: '**/node_modules'
-            key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: install dependencies
         run: yarn --prefer-offline --frozen-lockfile
       - uses: reviewdog/action-setup@v1
