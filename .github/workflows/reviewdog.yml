@@ -24,6 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --prefer-offline
       - uses: reviewdog/action-setup@v1
         with:
@@ -40,5 +41,4 @@ jobs:
       - name: lint
         env:
           github_token: ${{ secrets.github_token }}
-        run: |
-        $(npm bin)/textlint ${{ steps.get_file_changes.outputs.files }}
+        run: $(npm bin)/textlint ${{ steps.get_file_changes.outputs.files }}
