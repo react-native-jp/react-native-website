@@ -1,7 +1,7 @@
 ---
 id: accessibilityinfo
 title: AccessibilityInfo
----
+---aaaaaaあああああああああああああああ
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
