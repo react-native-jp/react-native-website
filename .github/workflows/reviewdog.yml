@@ -17,24 +17,25 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
-      - name: textlint reviewdog
-        uses: tsuyoshicho/action-textlint@v3
+        run: yarn --prefer-offline --frozen-lockfile
+      - uses: reviewdog/action-setup@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          textlint_flags: "**.md"
-      - name: textlint reviewdog
-        uses: tsuyoshicho/action-textlint@v3
+          reviewdog_version: latest
+      - name: Get file changes
+        id: get_file_changes
+        uses: dorner/file-changes-action@v1.2.0
         with:
+          githubToken: ${{ secrets.github_token }}
+          plaintext: true
+      - name: Echo file changes
+        run: |
+          echo Changed files: ${{ steps.get_file_changes.outputs.files }}
+      - name: lint
+        env:
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          textlint_flags: "docs/**"
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
+        run: $(npm bin)/textlint -f checkstyle ${{ steps.get_file_changes.outputs.files }} | reviewdog -f=checkstyle -reporter=github-pr-review -fail-on-error
