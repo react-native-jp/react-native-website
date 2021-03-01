@@ -1,0 +1,41 @@
+name: reviewdog
+on: [pull_request]
+jobs:
+  textlint:
+    name: runner / textlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Setup node/npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: install dependencies
+        run: yarn --prefer-offline --frozen-lockfile
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+      - name: Get file changes
+        id: get_file_changes
+        uses: dorner/file-changes-action@v1.2.0
+        with:
+          githubToken: ${{ secrets.github_token }}
+          plaintext: true
+      - name: Echo file changes
+        run: |
+          echo Changed files: ${{ steps.get_file_changes.outputs.files }}
+      - name: lint
+        env:
+          github_token: ${{ secrets.github_token }}
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
+        run: $(npm bin)/textlint -f checkstyle ${{ steps.get_file_changes.outputs.files }} | reviewdog -f=checkstyle -reporter=github-pr-review -fail-on-error
