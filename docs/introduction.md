@@ -1,7 +1,7 @@
 ---
 id: getting-started
 title: イントロダクション
-description: このガイドは、React Nativeの学習やこのドキュメントの使い方、環境セットアップを行うための前提条件を提示します。
+description: このガイドは、React Native の学習やこのドキュメントの使い方、環境セットアップを行うための前提条件を提示します。
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <div className="content-banner">
   <p>
     React Nativeの最初の一歩へようこそ！環境構築手順を探している場合は、この<a href="environment-setup">ページ</a>へどうぞ。
-    このページにはドキュメント、ネイティブコンポーネント、Reactなどの紹介がありますので、読み進めてみてください。
+    このページにはドキュメント、ネイティブコンポーネント、React などの紹介がありますので、読み進めてみてください。
   </p>
   <img className="content-banner-img" src="/docs/assets/p_android-ios-devices.svg" alt=" " />
 </div>
@@ -18,11 +18,11 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 ## ドキュメントの使い方
 
-このページから始めて、ドキュメント全体を本のように読み進めることができます。もしすでに React に慣れているのであれば、[React の紹介](intro-react) はスキップしても良いですし、軽く復習するために読んでも良いです。
+このページから始めて、ドキュメント全体を本のように読み進めることができます。もしすでに React に慣れているのであれば、[React の紹介](intro-react)はスキップしても良いですし、軽く復習するために読んでも良いです。
 
 ## 前提条件
 
-React Native を使うためには、JavaScript の基礎を理解している必要があります。JavaScript が初めての方や再学習が必要な方は、Mozilla Developer Network の [JavaScript](https://developer.mozilla.org/ja/docs/Web/JavaScript) や [JavaScript 「再」入門](https://developer.mozilla.org/ja/docs/Web/JavaScript/A_re-introduction_to_JavaScript) などを参照してください。
+React Native を使うためには、JavaScript の基礎を理解している必要があります。JavaScript が初めての方や再学習が必要な方は、Mozilla Developer Network の [JavaScript](https://developer.mozilla.org/ja/docs/Web/JavaScript) や [JavaScript 「再」入門](https://developer.mozilla.org/ja/docs/Web/JavaScript/A_re-introduction_to_JavaScript)などを参照してください。
 
 > React, Android, iOS 開発の予備知識がないことを前提にしていますが、React Native 開発者を目指す方にとっては貴重な勉強になるトピックです。必要に応じて、より深く掘り下げたリソースや記事にリンクしています。
 
@@ -106,11 +106,11 @@ export default HelloWorldApp;
 </TabItem>
 </Tabs>
 
-クラスコンポーネントの例をもっと見たい場合は [過去バージョンのドキュメント](/versions)を参照してください。
+クラスコンポーネントの例をもっと見たい場合は[過去バージョンのドキュメント](/versions)を参照してください。
 
 ## 開発者ノート
 
-様々な開発背景を持つ人が React Native を学んでいます。Web、Android、iOS など、様々な技術を経験している方もいるかもしれません。私たちは、あらゆるバックグラウンドを持つ開発者のために書くようにしています。時には、このように 1 つのプラットフォームに特化した説明を、それぞれ提供することもあります。
+様々な開発背景を持つ人が React Native を学んでいます。Web、Android、iOS など、様々な技術を経験している方もいるかもしれません。私たちは、あらゆるバックグラウンドを持つ開発者のために書くようにしています。時には、このように 1 つのプラットフォームに特化した説明を、それぞれ以下のように提供することもあります。
 
 <Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android", "ios", "web"])}>
 
