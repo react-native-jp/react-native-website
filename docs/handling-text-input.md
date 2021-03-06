@@ -1,11 +1,11 @@
 ---
 id: handling-text-input
-title: Handling Text Input
+title: Text Inputのハンドリング
 ---
 
-[`TextInput`](textinput#content) is a [Core Component](intro-react-native-components) that allows the user to enter text. It has an `onChangeText` prop that takes a function to be called every time the text changed, and an `onSubmitEditing` prop that takes a function to be called when the text is submitted.
+[`TextInput`](textinput#content)はユーザーにテキストを入力させる[Core Component](intro-react-native-components)です。TextInput はテキストを変更されるたびに呼び出される関数を渡せる `onChangeText` という prop を持っています。また、テキストがサブミットされた時に呼び出される `onSubmitEditing` という `prop` も持っています。
 
-For example, let's say that as the user types, you're translating their words into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated as "🍕🍕🍕".
+一例として、ユーザーが文字を入力したら、入力された文字を別の言語に翻訳する例をみてみましょう。この新しい言語では全ての 1 つ単語が 🍕 という記法で書かれます。そのため、 "Hello there Bob" は"🍕🍕🍕"として翻訳されます。
 
 ```SnackPlayer name=Handling%20Text%20Input
 import React, { useState } from 'react';
@@ -31,8 +31,8 @@ const PizzaTranslator = () => {
 export default PizzaTranslator;
 ```
 
-In this example, we store `text` in the state, because it changes over time.
+この例では、`text` は時間と共に変化するため state に保存しています。
 
-There are a lot more things you might want to do with a text input. For example, you could validate the text inside while the user types. For more detailed examples, see the [React docs on controlled components](https://reactjs.org/docs/forms.html#controlled-components), or the [reference docs for TextInput](textinput.md).
+テキストインプットに対して、動作させたいことはもっとたくさんあります。例えば、ユーザーが入力している最中に、テキストをバリデーションしたいといったことです。より詳細な例をみたい場合は、[React docs on controlled components](https://reactjs.org/docs/forms.html#controlled-components) あるいは [reference docs for TextInput](textinput.md) を参考にしてください。
 
-Text input is one of the ways the user interacts with the app. Next, let's look at another type of input and [learn how to handle touches](handling-touches.md).
+テキストインプットはアプリにおいて、ユーザーがインタラクションを起こす方法のうちの 1 つです。次に、別のタイプのインタラクションを起こす方法や [learn how to handle touches](handling-touches.md) をみてみましょう。
