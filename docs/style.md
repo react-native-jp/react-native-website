@@ -1,13 +1,13 @@
 ---
 id: style
-title: Style
+title: スタイリング
 ---
 
-With React Native, you style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g. `backgroundColor` rather than `background-color`.
+React Native では、JavaScript を使ってアプリケーションをスタイリングします。全てのコアコンポーネントは `style` という名前の `prop` を受け取ります。スタイル名と [values](colors.md) は、`background-color` を `backgroundColor` のようにキャメルケースで記述すること以外、web 上の CSS の役割とほぼ同じです。
 
-The `style` prop can be a plain old JavaScript object. That's what we usually use for example code. You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles.
+`style` という `prop` は JavaScript オブジェクト (JSON) を受け取ります。サンプルコードではこれが普段からよく使われます。また、複数のスタイルを配列で渡すこともできます。配列内の最後のスタイルが優先されるので、スタイルを継承するために使うこともできます。
 
-As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
+コンポーネントが複雑になってきた場合、1 箇所で複数のスタイルを定義できる `StyleSheet.create` を使ってコードをきれいにします。以下に例をあげます。
 
 ```SnackPlayer name=Style
 import React from 'react';
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
 export default LotsOfStyles;
 ```
 
-One common pattern is to make your component accept a `style` prop which in turn is used to style subcomponents. You can use this to make styles "cascade" the way they do in CSS.
+一般的な方法の 1 つは、コンポーネントに `style` prop を受け取らせ、そしてそれが順番にサブコンポーネントにも使われるというものです。CSS と同じように、スタイルを "カスケード" させることができます。
 
-There are a lot more ways to customize the text style. Check out the [Text component reference](text.md) for a complete list.
+テキストスタイルをカスタマイズする方法はもっと沢山あります。[テキストコンポーネントリファレンス](text.md)にその方法の一覧がまとまっています。
 
-Now you can make your text beautiful. The next step in becoming a style expert is to [learn how to control component size](height-and-width.md).
+さてこれで、あなたはテキストの見た目をデザインできるようになりました。スタイリングについてより詳しくなるため、次のステップに進みましょう。[コンポーネントのサイズを調整する方法](height-and-width.md)

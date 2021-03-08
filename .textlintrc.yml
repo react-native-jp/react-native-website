@@ -1,7 +1,8 @@
 ---
 filters: {}
 rules:
-  preset-ja-technical-writing: true
+  preset-ja-technical-writing:
+    "sentence-length": false
   "@textlint-ja/no-synonyms": true
   "preset-ja-spacing": 
     "ja-space-between-half-and-full-width":
