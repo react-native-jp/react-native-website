@@ -1,4 +1,7 @@
 # [reactnative.dev(unofficial)](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 > React Native のドキュメント翻訳プロジェクト（非公式）です。
 > 現段階では、React Native のドキュメントの翻訳プロジェクトは動いていてはいないため、もしかすると流れてしまうかもしれません。  
@@ -162,3 +165,23 @@ If possible, test any visual changes in all latest versions of the following bro
 React Native is [MIT licensed](./LICENSE).
 
 React Native documentation is [Creative Commons licensed](./LICENSE-docs).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/rena-h"><img src="https://avatars.githubusercontent.com/u/20507786?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rena Hamada</b></sub></a><br /><a href="https://github.com/react-native-jp/react-native-website/commits?author=rena-h" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
