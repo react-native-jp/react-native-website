@@ -4,9 +4,9 @@ title: ScrollViewを使う
 ---
 
 [ScrollView](scrollview.md) は汎用のスクロールするコンテナで、 複数のコンポーネントやビューを含むことができます。
-スクロールさせるアイテムは同種である必要はなく、垂直にも水平(`horizontal`props を設定)にもスクロールできます。
+スクロールさせるアイテムは同種である必要なく、垂直にも水平(`horizontal`props を設定)にもスクロールできます。
 
-こちらの例では画像とテキストが混ざった垂直方向の`ScrollView`を作成しています。
+こちらの例では画像とテキストが混ざった垂直方向の `ScrollView` を作成しています。
 
 ```SnackPlayer name=Using%20ScrollView
 import React from 'react';
@@ -57,8 +57,8 @@ const App = () => (
 export default App;
 ```
 
-ScrollView は`pagingEnabled`という props を使うことで、スワイプによるページングができます。 Android での水平方向のビュー間のページングは [ViewPager](https://github.com/react-native-community/react-native-viewpager)を用いて実装することもできます。
+ScrollView は `pagingEnabled` という props を使うことで、スワイプによるページングができます。 Android での水平方向のビュー間のページングは [ViewPager](https://github.com/react-native-community/react-native-viewpager)を用いて実装できます。
 
-iOS で ScrollView が一つだけのアイテムを持つ場合はズームが可能です。`maximumZoomScale` と `minimumZoomScale`を設定すると、ピンチイン・アウトでズームイン・アウトができます。
+iOS で ScrollView が 1 つだけのアイテムを持つ場合はズームが可能です。`maximumZoomScale` と `minimumZoomScale`を設定すると、ピンチイン・アウトでズームイン・アウトができます。
 
-ScrollView は少数の限られたサイズのアイテムをスクロールさせるときには上手く動きます。`ScrollView`内の全ての要素やビューは、画面に表示されていなくてもレンダーされてしまいまいます。もし画面に収まりきらないような長いリストを表示する場合は、代わりに`FlatList`を使うべきです。次は[learn about list views](using-a-listview.md) も学んでみましょう。
+ScrollView は少数の限られたサイズのアイテムをスクロールさせるときには上手く動きます。`ScrollView`内の全ての要素やビューは、画面に表示されていなくてもレンダーされてしまいまいます。もし画面に収まりきらないような長いリストを表示する場合は、代わりに `FlatList` を使うべきです。次は[learn about list views](using-a-listview.md) も学んでみましょう。
