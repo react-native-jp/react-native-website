@@ -183,7 +183,7 @@ function GroceryShoppingList() {
 
 > React のクラスコンポーネントは特にインターナルなステートや props、イベントハンドラのような実装の細かい部分をテストしがちです。実装の細かい部分をテストするのは避け、コンポーネントの内部に依存する事を _難しくする_ Hooks を用いた関数コンポーネントを用いるのが好ましいです。
 
-[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントをテストするライブラリは、API の適切な選択によってユーザー視点でのテストが出来ます。次の例では、`changeText`と `press` メソッドを持ち、ユーザーのコンポーネントに対する操作をシミュレートする `fireEvent` と、レンダリングされた `Text` ノードからマッチするものを探す `getAllByText` クエリファンクションを用いています。
+[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントテストライブラリでは、提供されているAPIを注意深く選ぶことによりユーザー重視のテストが書きやすくなります。次の例では、`fireEvent`のメソッドである`changeText`と `press` を使いユーザーの操作をシミュレートし、`getAllByText`を用いて描画されたもの中からマッチする`Text`ノードを探索しています。
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
