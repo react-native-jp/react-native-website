@@ -95,7 +95,7 @@ Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/d
 - サービスがテストのたびに違うデータを返してくる可能性がある
 - サードパーティのサービスに繋がらない時でもテストを動かす必要があるから
 
-それゆえに、サービスのモック実装を行うことによって、何千にもおよぶ行のコードとインターネットに接続された温度系を効果的に置き換えることができます。
+それゆえに、サービスのモック実装することによって、何千にもおよぶ行のコードとインターネットに接続された温度系を効果的に置き換えることができます。
 
 > Jest は[モックに関するサポート](https://jestjs.io/docs/en/mock-functions#mocking-modules)をあらゆる実装の関数レベルからモジュールレベルまで実現しています。
 
@@ -176,14 +176,14 @@ function GroceryShoppingList() {
 
 逆に避けるべき事は以下の通りです。
 
-- コンポーネントの props やstateのアサーションを作成をすること
+- コンポーネントの props や state のアサーションを作成をすること
 - testID のクエリ
 
 テストを通すことは出来るとしても props やステートの実装の細かい部分をテストすることは避けてください。それらはリファクタリング(例えば、あなたが、それらのいくつかをリネームしたい時やクラスコンポーネントを hooks で書き直したい時)によって壊れやすくなりコンポーネントをユーザーがどう操作出来るかについて使う事には向いていません。
 
 > React のクラスコンポーネントでは、特に内部のステートや props、イベントハンドラのような実装の細かい部分をテストしてしまうことがあります。実装の細かい部分をテストするのは避け、コンポーネントの内部に依存する事を _難しくする_ Hooks を用いた関数コンポーネントを用いるのが好ましいです。
 
-[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントテストライブラリでは、提供されているAPIを注意深く選ぶことによりユーザー重視のテストが書きやすくなります。次の例では、`fireEvent`のメソッドである`changeText`と `press` を使いユーザーの操作をシミュレートし、`getAllByText`を用いて描画されたもの中からマッチする`Text`ノードを探索しています。
+[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントテストライブラリでは、提供されている API を注意深く選ぶことによりユーザー重視のテストが書きやすくなります。次の例では、`fireEvent`のメソッドである `changeText` と `press` を使いユーザーの操作をシミュレートし、`getAllByText`を用いて描画されたもの中からマッチする `Text` ノードを探索しています。
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
@@ -206,7 +206,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 ### 描画結果のテスト
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jestを使うことで可能になる高度なテストです。とても強力かつ低レベルなツールであり、使用する際には必要以上の注意をすることを勧めます。
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jest を使うことで可能になる高度なテストです。とても強力かつ低レベルなツールであり、使用する際には必要以上の注意をすることを勧めます。
 
 コンポーネントのスナップショットは Jest に組み込まれているカスタムされた React のシリアライザによって作られる JSX のような文字列です。このシリアライザは Jest に React のコンポーネントツリーを人間が読めるような文字列に変換させます。言い換えるとコンポーネントのスナップショットはテスト中に _生成された_ 結果を描画したコンポーネントをテキストで表したものです。それは以下のような見た目になっています。
 
@@ -232,7 +232,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 スナップショットそれ自体はロジックが正しいかを保証しません。それらはただ単に、予期しないような変更が発生することへの予防に役に立ち、テスト中の React ツリーのコンポーネントが期待通りに props(styles などの props)を受け取っているかをチェックするためのものです。
 
-わたしたちは、小さなスナップショットだけを用いる事を推奨します。(詳しくは[`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)) もし、あなたが 2 つの React のコンポーネントのステート間の _変更_ をテストしたいなら、[`snapshot-diff`](https://github.com/jest-community/snapshot-diff)を使ってください。疑わしい時は、前のパラグラフで述べたような明示的に期待する検証をすることが望ましいです。
+わたしたちは、小さなスナップショットだけを用いる事を推奨します。(詳しくは[`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)) もし 2 つの React のコンポーネントのステート間の _変更_ をテストしたいなら、[`snapshot-diff`](https://github.com/jest-community/snapshot-diff)を使ってください。疑わしい時は、疑わしい時は、前のパラグラフで述べたような明白な結果を期待する検証をすることが望ましいです。
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
