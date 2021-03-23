@@ -206,7 +206,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 ### 描画結果のテスト
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jest による発展的なテストを可能にするものです。とても強力で低レベルなツールであり、使うと特別な注意を促してくれます。
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jestを使うことで可能になる高度なテストです。とても強力かつ低レベルなツールであり、使用する際には必要以上の注意をすることを勧めます。
 
 コンポーネントのスナップショットは Jest に組み込まれているカスタムされた React のシリアライザによって作られる JSX のような文字列です。このシリアライザは Jest に React のコンポーネントツリーを人間が読めるような文字列に変換させます。言い換えるとコンポーネントのスナップショットはテスト中に _生成された_ 結果を描画したコンポーネントをテキストで表したものです。それは以下のような見た目になっています。
 
