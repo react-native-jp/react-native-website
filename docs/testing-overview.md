@@ -198,7 +198,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
   fireEvent.press(getByText('Add the item to list'));
 
   const bananaElements = getAllByText('banana');
-  expect(bananaElements).toHaveLength(1); // 'banana' がリスト上に存在するはず
+  expect(bananaElements).toHaveLength(1); // 'banana' がリスト上に存在すること
 });
 ```
 
