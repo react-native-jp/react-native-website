@@ -1,29 +1,29 @@
 ---
 id: typescript
-title: Using TypeScript
+title: TypeScript を利用する
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-[TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
+[TypeScript][ts] は型定義を追加することで JavaScript を拡張する言語で、 [Flow][flow] によく似ています。 React Native は Flow で作られていますが、TypeScript と Flow の両方をデフォルトでサポートしています。
 
-## Getting Started with TypeScript
+## TypeScript を始めよう
 
-If you're starting a new project, there are a few different ways to get started.
+新しいプロジェクトを始める場合、いくつかの方法があります。
 
-You can use the [TypeScript template][ts-template]:
+[TypeScript のテンプレート][ts-template] を使う方法があります。
 
 ```shell
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note:** If the above command is failing, you may have an old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
+> **注意：** 上記のコマンドが失敗する場合は、お使いのシステムにグローバルにインストールされている `react-native` または `react-native-cli` のバージョンが古い可能性があります。この問題を解決するには、 CLI をアンインストールしてみてください。
 >
-> - `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
+> - `npm uninstall -g react-native-cli` または `yarn global remove react-native-cli`
 >
-> and then run the `npx` command again.
+> そして再び `npx` コマンドを実行してみてください。
 
-You can use [Expo][expo] which has two TypeScript templates:
+[Expo][expo] を使うこともできます。Expo には TypeScript のテンプレートが２つあります。
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -44,7 +44,7 @@ expo init MyTSProject
 </TabItem>
 </Tabs>
 
-Or you could use [Ignite][ignite], which also has a TypeScript template:
+また、 [Ignite][ignite] を使うこともできます。 Ignite にも TypeScript のテンプレートがあります。
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -65,9 +65,9 @@ ignite new MyTSProject
 </TabItem>
 </Tabs>
 
-## Adding TypeScript to an Existing Project
+## 既存のプロジェクトにTypeScriptを追加する
 
-1. Add TypeScript and the types for React Native and Jest to your project.
+1. TypeScript 、 React Native 用の型、 Jest 用の型をプロジェクトに追加します。
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -86,7 +86,7 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
 </TabItem>
 </Tabs>
 
-2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
+2. TypeScript の設定ファイルを追加します。 `tsconfig.json` ファイルをプロジェクトのルートに作成してください。
 
 ```json
 {
@@ -111,7 +111,7 @@ yarn add -D typescript @types/jest @types/react @types/react-native @types/react
 }
 ```
 
-3. Create a `jest.config.js` file to configure Jest to use TypeScript
+3. Jest に TypeScript を使用することを認識させるために `jest.config.js` ファイルを作成してください。
 
 ```js
 module.exports = {
@@ -120,19 +120,20 @@ module.exports = {
 };
 ```
 
-4. Rename a JavaScript file to be `*.tsx`
+4. JavaScript のファイル名を `*.tsx` に変更してください。
 
-> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+> エントリポイントファイルである `./index.js` はそのままにしておいてください。そうしないと、本番ビルドのバンドルの際に問題が発生する可能性があります。
 
-5. Run `yarn tsc` to type-check your new TypeScript files.
+5. `yarn tsc`を実行して、新しい TypeScript ファイルの型チェックを行ってください。
 
-## How TypeScript and React Native works
+## TypeScript と React Native の仕組み
 
-Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats] to using Babel instead of TypeScript.
+TypeScript のファイルを JavaScript に変換する際、TypeScript を使用してない React Native のプロジェクトと同じ [Babel の基盤][babel] を介しています。 TypeScript コンパイラーは型チェックにのみ使用することをお勧めします。既存の TypeScript コードを React Native に移植している場合、 TypeScript の代わりに Babel を使用するための[いくつかの注意点][babel-7-caveats]があります。
 
-## What does React Native + TypeScript look like
+## React Native + TypeScript のコードはどのような感じか
 
-You can provide an interface for a React Component's [Props](props) and [State](state) via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
+
+React Component の [Props](props) と [State](state) のための interface は `React.Component<Props, State>` を介して渡すことができます。JSX でそのコンポーネントを使用する際、 `React.Component<Props, State>` によって型チェックと自動補完をしてくれます。
 
 ```tsx title="components/Hello.tsx"
 import React from 'react';
@@ -208,19 +209,19 @@ const styles = StyleSheet.create({
 export default Hello;
 ```
 
-You can explore the syntax more in the [TypeScript playground][tsplay].
+[TypeScript playground][tsplay] で、この構文をより詳しく知ることができます。
 
-## Where to Find Useful Advice
+## 有益なアドバイスが載っている場所
 
-- [TypeScript Handbook][ts-handbook]
-- [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
+- [TypeScript ハンドブック][ts-handbook]
+- [React の TypeScript に関するドキュメント][react-ts]
+- [React + TypeScript チートシート][cheat] には、 TypeScript で React を使用する方法の概要が載っています。
 
-## Using Custom Path Aliases with TypeScript
+## TypeScript によるカスタムパスエイリアスの使用
 
-To use custom path aliases with TypeScript, you need to set the path aliases to work from both Babel and TypeScript. Here's how:
+カスタムパスエイリアスを TypeScript で使用するには、 Babel と TypeScript の両方から動作するように設定する必要があります。その方法は以下の通りです。
 
-1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
+1. `tsconfig.json` を編集して、カスタムパスマッピングを作成します。以下の例では、`src` のルートにあるファイルは、前にパス参照をつけなくても利用できるようになります。また、どのテストファイルも `tests/File.tsx` を使ってアクセスできるようになります。
 
 ```diff {2-7}
     "target": "esnext",
@@ -233,7 +234,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
     }
 ```
 
-2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
+2. [`babel-plugin-module-resolver`][bpmr]を開発パッケージとしてプロジェクトに追加します。
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
@@ -252,7 +253,7 @@ yarn add --dev babel-plugin-module-resolver
 </TabItem>
 </Tabs>
 
-3. Finally, configure your `babel.config.js` (note that the syntax for your `babel.config.js` is different from your `tsconfig.json`):
+3. 最後に、 `babel.config.js` の設定をします。(`babel.config.js` の構文は `tsconfig.json` とは異なるので注意してください。)
 
 ```diff {3-13}
 {
