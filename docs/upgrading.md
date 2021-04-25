@@ -7,7 +7,7 @@ title: Upgrading to new versions
 
 ## Expo projects
 
-Expo プロジェクトを新しいバージョンの React Native にアップグレードするためには、`package.json`の `react-native` , `react`, `expo`のアップデートが必要になります。どのバージョンがサポートされているかを調べるためにはこちらの[this list](https://docs.expo.io/versions/latest/sdk/#sdk-version)を 3 章してください。`app.json`に正しい `sdkVersion` を設定する必要もあります。
+Expo プロジェクトを新しいバージョンの React Native にアップグレードするためには、`package.json`の `react-native` , `react`, `expo`のアップデートが必要になります。どのバージョンがサポートされているかを調べるためにはこちらの[this list](https://docs.expo.io/versions/latest/sdk/#sdk-version)を参照してください。`app.json`に正しい `sdkVersion` を設定する必要もあります。
 
 アップグレードに関する最新の情報はこちら[Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) を確認してください。
 
@@ -101,7 +101,7 @@ npx react-native upgrade
 
 - テンプレートに新しいファイルがある場合、それを生成する
 - プロジェクトにあるファイルとテンプレートのあるファイルが同一である場合、それをスキップする
-- プロジェクトのファイルとテンプレートのファイルが異なる場合、プロンプトが表示されます; ファイルを維持するか上書きするかを選ぶことができます。
+- プロジェクトのファイルとテンプレートのファイルが異なる場合、プロンプトが表示されます。ファイルを維持するか上書きするかを選ぶことができます。
 
 > Some upgrades won't be done automatically with the React Native CLI and require manual work, e.g. `0.28` to `0.29`, or `0.56` to `0.57`. Make sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
 
@@ -110,7 +110,7 @@ npx react-native upgrade
 ### トラブルシューティング
 
 #### React Native CLIでのアップグレードを行いたいがGitは使用していない
-プロジェクトを Git で管理する必要はありませんが(Mercurial や SVN　あるいは何も使用しないなど)、`npx react-native upgrade` を使用するためにはシステム上に[install Git](https://git-scm.com/downloads) が必要です。Git もまた `PATH` 　で利用できることが必要になります。もしも Git を使用していない場合は初期化しコミットをしてください。
+プロジェクトを Git で管理する必要はありませんが(Mercurial や SVN　あるいは何も使用しないなど)、`npx react-native upgrade` を使用するためにはシステム上に[install Git](https://git-scm.com/downloads) が必要です。Git もまた `PATH` で利用できることが必要になります。もしも Git を使用していない場合は初期化しコミットをしてください。
 
 ```shell
 git init # Gitリポジトリを初期化します
