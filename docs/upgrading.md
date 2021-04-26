@@ -3,43 +3,44 @@ id: upgrading
 title: Upgrading to new versions
 ---
 
-Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it straightforward for you.
+新しいバージョンの React Native へアップグレードするとより多くの、API、view、developer tools といった役立つものが利用可能になります。アップグレードは少し労力が必要になりますが、我々はそれを簡単にできるよう努めています。
 
 ## Expo projects
 
-Upgrading your Expo project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this list](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
+Expo プロジェクトを新しいバージョンの React Native にアップグレードするためには、`package.json`の `react-native` , `react`, `expo`のアップデートが必要になります。どのバージョンがサポートされているかを調べるためにはこちらの[this list](https://docs.expo.io/versions/latest/sdk/#sdk-version)を参照してください。`app.json`に正しい `sdkVersion` を設定する必要もあります。
 
-See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) for up-to-date information about upgrading your project.
+アップグレードに関する最新の情報はこちら[Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) を確認してください。
 
 ## React Native projects
 
-Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently two ways for upgrading your React Native project: by using [React Native CLI](https://github.com/react-native-community/cli) or manually with [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
+基本的な React Native のプロジェクトは、Android project, iOS project, JavaScrip で構成されているので、アップグレードはかなりやりにくいことがあります。React Native アップグレードの方法はふたつあり：　[React Native CLI](https://github.com/react-native-community/cli) を用いる方法と、[Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) を使い手動で行う方法です。
 
 ### React Native CLI
 
-The [React Native CLI](https://github.com/react-native-community/cli) comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum of conflicts, it internally uses [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project to find out which files need to be created, removed or modified.
+[React Native CLI](https://github.com/react-native-community/cli) には `upgrade` コマンドがあります。このコマンドは[rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project を使いどのファイルに作成、削除、あるいは修正が必要なのかを特定できるので、これを使うことによってワンステップでソースファイルのアップグレードを最小限のコンフリクトで行えます。
 
-#### 1. Run the `upgrade` command
 
-> The `upgrade` command works on top of Git by using `git apply` with 3-way merge, therefore it's required to use Git in order for this to work, if you don't use Git but still want to use this solution then you can check out how to do it in the [Troubleshooting](#i-want-to-upgrade-with-react-native-cli-but-i-don-t-use-git) section.
+#### 1. `upgrade` コマンドの実行
 
-Run the following command to start the process of upgrading to the latest version:
+> `upgrade` コマンドは `git apply` で 3-way mergeを行うためGit上で動作します。したがって動作させるためにはGitが必要になります。もしGitを使いたくないがこのソリューションを使いたい場合は[Troubleshooting](#i-want-to-upgrade-with-react-native-cli-but-i-don-t-use-git) を確認してください。
+
+最新バージョンへのアップグレードプロセスを開始するためには下記のコマンドを実行してください。
 
 ```shell
 npx react-native upgrade
 ```
 
-You may specify a React Native version by passing an argument, e.g. to upgrade to `0.61.0-rc.0` run:
+引数を渡すことで React Native バージョンの指定もできます（`0.61.0-rc.0` にアップグレードする例です）。
 
 ```shell
 npx react-native upgrade 0.61.0-rc.0
 ```
 
-The project is upgraded using `git apply` with 3-way merge, it may happen that you'll need to resolve a few conflicts after it's finished.
+3-way merge　を利用する `git apply`　を使用してプロジェクトのアップグレードが行われるので、コマンド終了後に少量のコンフリクトを修正する必要がある場合もあります。
 
-#### 2. Resolve the conflicts
+#### 2. コンフリクトを解決する
 
-Conflicted files include delimiters which make very clear where the changes come from. For example:
+コンフリクトしたファイルには、どこから変更がきたのか明白にする区切り文字が含まれます。例えば。
 
 ```
 13B07F951A680F5B00A75B9A /* Release */ = {
@@ -64,60 +65,60 @@ Conflicted files include delimiters which make very clear where the changes come
     );
 ```
 
-You can think of "ours" as "your team" and "theirs" as "the React Native development team".
+"ours" は "こちらのチーム"、"theirs"　は "React　Native 開発チーム"　と考えることができます。
 
 ### Upgrade Helper
 
-The [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. It also shows comments on specific files to help understanding why that change is needed.
+[Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) は、ある２つのバージョン間のフルセットの差分を提供することにより、アップグレードをしやすくするのツールです。このツールは特定のファイルのコメントも表示するので、なぜ変更が必要なのかを理解しやすくなります。
 
-#### 1. Select the versions
+#### 1. バージョンの選択
 
-You first need to select from and to which version you wish to upgrade, by default the latest major versions are selected. After selecting you can click the button "Show me how to upgrade".
+まず最初にどのバージョンからどのバージョンにアップグレードしたいのかを選択する必要があります。デフォルトでは最新のメジャーバージョンが指定されています。選択したのちに "Show me how to upgrade" ボタンを押下します。
 
-💡 Major updates will show an "useful content" section on the top with links to help you out when upgrading.
+💡 メジャーアップデートでは、アップデートをしやすくするために　"useful content" をリンクとともに表示します。
 
-#### 2. Upgrade dependencies
+#### 2. 依存関係のアップデート
 
-The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running `yarn add`:
+最初に表示されているファイルは `package.json` でそこに表示されている依存関係をアップデートすることをお勧めします。例えば、`react-native` と `react` が変更されていると表示された場合、 `yarn add` を実行することでそれらをインストールできます。
 
 ```shell
-# {{VERSION}} and {{REACT_VERSION}} are the release versions showing in the diff
+# {{VERSION}} と {{REACT_VERSION}} は変更差分として表示されているリリースバージョンです。
 yarn add react-native@{{VERSION}}
 yarn add react@{{REACT_VERSION}}
 ```
 
-#### 3. Upgrade your project files
+#### 3. プロジェクトファイルのアップグレード
 
-The new release may contain updates to other files that are generated when you run `npx react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you only need to rebuild the project to continue developing.
+新しいリリースには `npx react-native init` を実行した時に生成されるファイルに対する変更が、含まれることがあります。これらのファイルは Upgrade Helper ページで `package.json` の後に表示されます。もしもこれらの変更がない場合はプロジェクトをリビルトするだけですみます。
 
-In case there are changes then you can either update them manually by copying and pasting from the changes in the page or you can do it with the React Native CLI upgrade command by running:
+これらの変更がある場合は、ページ上の変更点からコピーペーストをして手動でアップデートを行うか、下記のコマンドを実行して React Native CLI を使ったアップデートを行うかのどちらかをすることになります。
 
 ```shell
 npx react-native upgrade
 ```
 
-This will check your files against the latest template and perform the following:
+このコマンドでは、最新のテンプレートとプロジェクトのファイルを照合し以下のことを行います。
 
-- If there is a new file in the template, it is created.
-- If a file in the template is identical to your file, it is skipped.
-- If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
+- テンプレートに新しいファイルがある場合、それを生成する
+- プロジェクトにあるファイルとテンプレートのあるファイルが同一である場合、それをスキップする
+- プロジェクトのファイルとテンプレートのファイルが異なる場合、プロンプトが表示されます。ファイルを維持するか上書きするかを選ぶことができます。
 
 > Some upgrades won't be done automatically with the React Native CLI and require manual work, e.g. `0.28` to `0.29`, or `0.56` to `0.57`. Make sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
 
-### Troubleshooting
+> `0.28` から `0.29`, あるいは `0.56` から `0.57` といった一部のアップデートではReact Native CLIによる自動アップデートを行うことができず手動で行う必要があります。今のプロジェクトに手動でのアップデートが必要になるかを特定するために、アップグレードの際には [release notes](https://github.com/facebook/react-native/releases) を必ず確認してください。
 
-#### I want to upgrade with React Native CLI but I don't use Git
+### トラブルシューティング
 
-While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `npx react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
+#### React Native CLIでのアップグレードを行いたいがGitは使用していない
+プロジェクトを Git で管理する必要はありませんが(Mercurial や SVN　あるいは何も使用しないなど)、`npx react-native upgrade` を使用するためにはシステム上に[install Git](https://git-scm.com/downloads) が必要です。Git もまた `PATH` で利用できることが必要になります。もしも Git を使用していない場合は初期化しコミットをしてください。
 
 ```shell
-git init # Initialize a Git repository
-git add . # Stage all the current files
-git commit -m "Upgrade react-native" # Save the current files in a commit
+git init # Gitリポジトリを初期化します
+git add . # 現在のファイル全てをステージにあげる
+git commit -m "Upgrade react-native" # コミットとしてファイルをセーブする
 ```
 
-After you finish upgrading you may remove the `.git` directory.
+アップグレード完了後は、 `.git`ディレクトリを削除しても構いません。
 
-#### I have done all the changes but my app is still using an old version
-
-These sort of errors are usually related to caching, it's recommended to install [react-native-clean-project](https://github.com/pmadruga/react-native-clean-project) to clear all your project's cache and then you can run it again.
+#### アップグレードしたはずだが、まだアプリケーションは古いバージョンを使い続けている
+キャッシュ関係によりこれらの類のエラーが多々発生するので、プロジェクトのキャッシュを削除するために[react-native-clean-project](https://github.com/pmadruga/react-native-clean-project) をインストールしアプリケーションを再起動することを勧めます。
