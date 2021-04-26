@@ -211,17 +211,17 @@ export default Hello;
 
 [TypeScript playground][tsplay] で、この構文をより詳しく知ることができます。
 
-## 有益なアドバイスが載っている場所
+## 役立つアドバイスはこちら
 
 - [TypeScript ハンドブック][ts-handbook]
 - [React の TypeScript に関するドキュメント][react-ts]
 - [React + TypeScript チートシート][cheat] には、 TypeScript で React を使用する方法の概要が載っています。
 
-## TypeScript によるカスタムパスエイリアスの使用
+## TypeScript でパスのエイリアスを指定する
 
-カスタムパスエイリアスを TypeScript で使用するには、 Babel と TypeScript の両方から動作するように設定する必要があります。その方法は以下の通りです。
+TypeScript でパスのエイリアスを指定するには、 Babel と TypeScript の両方から動作するように設定する必要があります。その方法は以下の通りです。
 
-1. `tsconfig.json` を編集して、カスタムパスマッピングを作成します。以下の例では、`src` のルートにあるファイルは、前にパス参照をつけなくても利用できるようになります。また、どのテストファイルも `tests/File.tsx` を使ってアクセスできるようになります。
+1. `tsconfig.json` を編集して、パスのマッピングを作成します。以下の例では、`src` のルートにあるファイルは、前にパス参照をつけなくても利用できるようになります。また、どのテストファイルも `tests/File.tsx` を使ってアクセスできるようになります。
 
 ```diff {2-7}
     "target": "esnext",
