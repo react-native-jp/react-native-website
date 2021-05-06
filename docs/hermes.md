@@ -7,11 +7,11 @@ title: Hermes を使う
 <img width={300} height={300} style={{float: 'right', margin: '-30px 4px 0'}} src="/docs/assets/HermesLogo.svg" />
 </a>
 
-[Hermes](https://hermesengine.dev) は、 React Native に最適化されたオープンソースの JavaScript エンジンです。多くのアプリでは、 Hermes を有効にすることで、起動時間が短縮されたり、メモリ使用量が削減されたり、アプリサイズが縮小されたりします。現時点では、 Hermes は React Native のデフォルト機能ではなく、このガイドでは Hermes を有効にする方法を説明します。
+[Hermes](https://hermesengine.dev) は、 React Native に最適化されたオープンソースの JavaScript エンジンです。多くのアプリでは、 Hermes を有効にすることで、起動時間が短縮されたりメモリ使用量が削減されたりアプリサイズが縮小されたりします。現時点では、 Hermes は React Native のデフォルト機能ではなく、このガイドでは Hermes を有効にする方法を説明します。
 
-まず、React Nativeのバージョン0.60.4以上を使用していることを確認します。
+まず、React Native のバージョン 0.60.4 以上を使用していることを確認します。
 
-0.60.4より前のバージョンのアプリの場合は、まず React Native をアップグレードする必要があります。アップグレードの方法については、 [Upgrading to new React Native Versions](/docs/upgrading) をご覧ください。 [React Native のアップグレードのヘルプページ](https://react-native-community.github.io/upgrade-helper/?from=0.59.0) で詳しく説明しているように、 `android/app/build.gradle` へのすべての変更が適用されていることを入念に確認してください。アプリをアップグレードした後、 Hermes に切り替える前にすべて正常に動作することを確認してください。
+0.60.4 より前のバージョンのアプリの場合は、まず React Native をアップグレードする必要があります。アップグレードの方法については、 [Upgrading to new React Native Versions](/docs/upgrading) をご覧ください。 [React Native のアップグレードのヘルプページ](https://react-native-community.github.io/upgrade-helper/?from=0.59.0) で詳しく説明しているように、 `android/app/build.gradle` へのすべての変更が適用されていることを入念に確認してください。アプリをアップグレードした後、 Hermes へ切り替える前にすべて正常に動作することを確認してください。
 
 > ## RN の互換性に関する注意事項
 >
@@ -56,11 +56,11 @@ $ npx react-native run-android
 
 ## Hermes が使われていることを確認する
 
-最近、アプリを一から作成した場合、最初の画面に Hermes が有効になっているかどうかの表示があるはずです。
+最近、アプリを一から作成した場合、最初の画面で Hermes が有効になっているかどうかの表示があるはずです。
 
 ![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
 
-HermesInternal というグローバル変数が JavaScriptで有効になります。この変数を以下のように使うことで Hermes が使われているか確認できます。
+HermesInternal というグローバル変数が JavaScript で有効になります。この変数を以下のように使うことで Hermes が使われているか確認できます。
 
 ```jsx
 const isHermes = () => !!global.HermesInternal;
@@ -72,15 +72,15 @@ Hermes のメリットを確認するために、リリースビルドやリリ�
 $ npx react-native run-android --variant release
 ```
 
-すると、ビルド時に Javascript がバイトコードにコンパイルされます。これによってデバイスでのアプリの起動時間が短縮されます。
+すると、ビルド時に JavaScript がバイトコードへコンパイルされます。これによってデバイスでのアプリの起動時間が短縮されます。
 
 ## Google Chrome の開発者ツールで Hermes をデバッグする
 
-Hermes は Chrome インスペクタプロトコルを実装することで、 Chrome のデバックをサポートしています。つまり、 Chrome のツールを使って、Hermes 上、エミュレータ上、または実際の物理的なデバイス上で動作する JavaScript を直接デバッグすることができます。
+Hermes は Chrome インスペクタプロトコルを実装することで、 Chrome のデバックをサポートしています。つまり、 Chrome のツールを使って、Hermes 上やエミュレータ上や実際の物理的なデバイス上で動作する JavaScript を直接デバッグできます。
 
 > これはアプリの開発者ツールに元々備わっている 『リモート JS デバック』 とは全く異なるということに注意してください。リモート JS デバックは、開発マシン（ラップトップやデスクトップ）上の Chrome の V8 上で実際に JS のコードを実行します。詳しくは[デバック](debugging#debugging-using-a-custom-javascript-debugger)セクションに書いてあります。
 
-Chrome は Metro 経由でデバイス上で動いている Hermes に接続するので、Metro がどのアドレスで待機しているかを知る必要があります。一般的には`localhost:8081`ですが、[設定可能です][configurable](https://facebook.github.io/metro/docs/configuration)。`yarn start` を実行すると、起動時にアドレスが標準出力されます。
+Chrome は Metro を介してデバイス上で動いている Hermes に接続するので、Metro がどのアドレスで待機しているかを知る必要があります。一般的には `localhost:8081` ですが、[設定可能です][configurable](https://facebook.github.io/metro/docs/configuration)。`yarn start` を実行すると、起動時にアドレスが標準出力されます。
 
 Metro サーバーがどのアドレスで待機しているか分かったら、以下の手順で Chrome と接続します。
 
@@ -95,4 +95,4 @@ Metro サーバーがどのアドレスで待機しているか分かったら�
 
 3. Target に "Hermes React Native" が表示され、デバッガを起動するための "inspect" リンクがあるはずです。もし "inspect" リンクが見つからなかったら、 Metro サーバーが起動していることを確認してください。 ![Target inspect link](/docs/assets/HermesDebugChromeInspect.png)
 
-4. Chrome のデバッグツールが使えるようになりました。たとえば、JavaScript が実行されたときにブレークポイントを設定するには、一時停止ボタンをクリックして、アプリ内でJavaScript を実行させるアクションを起こします。 ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)
+4. Chrome のデバッグツールが使えるようになりました。たとえば JavaScript が実行されたときにブレークポイントを設定するには、一時停止ボタンをクリックして、アプリ内で JavaScript を実行させるアクションを起こします。 ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)
