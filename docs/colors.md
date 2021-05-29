@@ -3,23 +3,23 @@ id: colors
 title: Color Reference
 ---
 
-Components in React Native are [styled using JavaScript](style). Color properties usually match how [CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). General guides on the color usage on each platform could be found below:
+React Native のコンポーネントは[styled using JavaScript](style)です。color プロパティは、[CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) と通常一致します。各プラットフォームにおける color の司法用については以下の通りです。
 
 - [Android](https://material.io/design/color/color-usage.html)
 - [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/)
 
 ## Color APIs
 
-React Native has several color APIs designed to allow you to take full advantage of your platform's design and user preferences.
+React Native にはユーザーの好みやプラットフォームのデザインを最大限に発揮できるように設計されたいくつかの color API があります。
 
-- [PlatformColor](platformcolor) lets you reference the platform's color system.
-- [DynamicColorIOS](dynamiccolorios) is iOS specific and allows you to specify which colors should be used in light or Dark Mode.
+- [PlatformColor](platformcolor) プラットフォームのカラーシステムについて参照できます。
+- [DynamicColorIOS](dynamiccolorios) iOS 固有で、ダークモードあるいはライトモードの時にどの色を使うべきかを指定できます。
 
-## Color representations
+## 色の表現方法
 
 ### Red Green Blue (RGB)
 
-React Native supports `rgb()` and `rgba()` in both hexadecimal and functional notation:
+React Native は 16 進数と関数表記の両方で `rgb()` と `rgba()` をサポートしています。
 
 - `'#f0f'` (#rgb)
 - `'#ff00ff'` (#rrggbb)
@@ -30,32 +30,32 @@ React Native supports `rgb()` and `rgba()` in both hexadecimal and functional no
 
 ### Hue Saturation Lightness (HSL)
 
-React Native supports `hsl()` and `hsla()` in functional notation:
+React Native は関数表記において `hsl()` と `hsla()` をサポートしています。
 
 - `'hsl(360, 100%, 100%)'`
 - `'hsla(360, 100%, 100%, 1.0)'`
 
 ### Color ints
 
-React Native supports also colors as an `int` values (in RGB color mode):
+React Native では、`int`(RGB カラーモードで)値もサポートしています。
 
 - `0xff00ff00` (0xrrggbbaa)
 
-> **_Note:_** This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) ints representation but on Android values are stored in SRGB color mode (0xaarrggbb).
+> **_注:_** これはAndroidの [Color](https://developer.android.com/reference/android/graphics/Color) ints 表記に似ているように見えますが、AndroidではSRGBカラーモード(0xaarrggbb)で保存されます。
 
-### Named colors
+### カラー名
 
-In React Native you can also use color name strings as values.
+React Native ではカラー名を使うこともできます。
 
-> **_Note:_** React Native only supports lowercase color names. Uppercase color names are not supported.
+> **_注:_** React Nativeでは lowercase のカラー名のみをサポートしています。uppercaseのカラー名はサポートしていません。
 
 #### `transparent`
 
-This is a shortcut for `rgba(0,0,0,0)`, same like in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
+[CSS3](https://www.w3.org/TR/css-color-3/#transparent) のような `rgba(0, 0, 0, 0)` の短縮表記です。
 
-#### Color keywords
+#### キーワード
 
-Named colors implementation follows the [CSS3/SVG specification](https://www.w3.org/TR/css-color-3/#svg-color):
+カラー名の実装は [CSS3/SVG specification](https://www.w3.org/TR/css-color-3/#svg-color) にしたがっています。
 
 <!-- alex ignore black white -->
 
