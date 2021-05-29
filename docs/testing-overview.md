@@ -3,55 +3,55 @@ id: testing-overview
 title: Testing
 author: Vojtech Novak
 authorURL: 'https://twitter.com/vonovak'
-description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
+description: このガイドではReact Native開発者に良いテストの書き方やどのようなテストを取り入れるべきかという、キーコンセプトを紹介します。
 ---
 
-As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
+コードが大きくなるにつれて、予期しない小さなエラーやエッジケースが大きなエラーに繋がることがあります。バグは悪いユーザーエクスペリエンスとなり、究極的にはビジネス機会の損失になり得ます。脆弱なプログラミングを防ぐ方法の 1 つはリリースをする前にコードのテストを行うことです。
 
-In this guide, we will cover different, automated ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+このガイドでは、静的分析から End-to-End テストに至るまで、アプリケーションが予期した動作をすることを自動で確認する方法を紹介します。
 
-<img src="/docs/assets/diagram_testing.svg" alt="Testing is a cycle of fixing, testing, and either passing to release or failing back into testing." />
+<img src="/docs/assets/diagram_testing.svg" alt="コードの修正、テスト、合格あるいは失敗といったサイクルでテストは行われます。" />
 
-## Why Test
+## なぜテストが必要か
 
-We're humans, and humans make mistakes. Testing is important because it helps you uncover these mistakes and verifies that your code is working. Perhaps even more importantly, testing ensures that your code continues to work in the future as you add new features, refactor the existing ones, or upgrade major dependencies of your project.
+私たちは人間で人間は過ちをするものです。テストは、ミスを明らかにしコードが正しく動作をしていることを確認するのに役立つため重要です。おそらく更に重要な事に、新機能を追加しても既存のコードをリファクタリングしても、あるいはプロジェクトの重大な依存関係の更新をしてもテストは将来もコードが動作し続ける事を保証してくれます。
 
-There is more value in testing than you might realize. One of the best ways to fix a bug in your code is to write a failing test that exposes it. Then when you fix the bug and re-run the test, if it passes it means the bug is fixed, never reintroduced into the code base.
+テストにはあなたが思っている以上に価値があるでしょう。コード中のバグを直す最もよい方法の 1 つは、そのバグによって失敗しているテストを書くことです。その後、バグを直してテストを再度実行した時にテストがパスするということは、バグが直り二度とコードベースに持ち込まれない事を意味します。
 
-Tests can also serve as documentation for new people joining your team. For people who have never seen a codebase before, reading tests can help them understand how the existing code works.
+テストは新しくチームに入った人へドキュメントを提供する事にもなります。実際のコードを見た事がない人でもテストを読む事によって既存のコードがどのように動くか理解しやすくなります。
 
-Last but not least, more automated testing means less time spent with manual <abbr title="Quality Assurance">QA</abbr>, freeing up valuable time.
+最後になりますが大事なことに、テストが自動化されるにつれて手動で<abbr title="Quality Assurance">QA</abbr>テストをすることにかかる時間が少なくなり、貴重な時間を開放できます。
 
-## Static Analysis
+## 静的解析
 
-The first step to improve your code quality is to start using static analysis tools. Static analysis checks your code for errors as you write it, but without running any of that code.
+コード品質改善の最初の一歩として、静的解析ツールを使いましょう。静的解析はコードを書くとコードを全く動かすことなくエラーを調べてくれます。
 
-- **Linters** analyze code to catch common errors such as unused code and to help avoid pitfalls, to flag style guide no-nos like using tabs instead of spaces (or vice versa, depending on your configuration).
-- **Type checking** ensures that the construct you’re passing to a function matches what the function was designed to accept, preventing passing a string to a counting function that expects a number, for instance.
+- **Linters** コードを解析すると使われていないコードを見つけたり、スペースの代わりに tab を使っている(設定次第ではその逆もあります)といった、スタイルガイドが禁止している書き方を見つけることができます。
+- **Type checking** 　number 型が渡されることを期待している counting 関数に対して string が渡されるのを防ぐといったように、関数に渡しているデータ構造が関数によってあらかじめ設計されているものと一致している事を保証します。
 
-React Native comes with two such tools configured out of the box: [ESLint](https://eslint.org/) for linting and [Flow](https://flow.org/en/docs/) for type checking. You can also use [TypeScript](typescript), which is a typed language that compiles to plain JavaScript.
+React Native はすぐに使える設定済みの二種類のツールがあります。: [ESLint](https://eslint.org/) `lint`のためのツールです。[Flow](https://flow.org/en/docs/) または、 [TypeScript](typescript)(JavaScript にトランスパイル可能な型付き言語)、`Type checking`のためのツールです。
 
-## Writing Testable Code
+## テスタブルなコードを書く
 
-To start with tests, you first need to write code that is testable. Consider an aircraft manufacturing process - before any model first takes off to show that all of its complex systems work well together, individual parts are tested to guarantee they are safe and function correctly. For example, wings are tested by bending them under extreme load; engine parts are tested for their durability; the windshield is tested against simulated bird impact.
+テストを始めるにあたって、まず最初に必要なことはテストのしやすいコードを書くことです。航空機を作るプロセスを考えてみてください。 - いかなるモデルの機体でも、複雑なシステムが相互に全て正しく動いているかを確認するために飛ばしますが、それ以前に個々のパーツではテストが行われ安全であり正しく機能している事が保証されます。例えば翼は著しく重い負荷によって曲がるかをテストし、エンジンのパーツは耐久性をテストし、フロントガラスはバードインパクトをシミュレートしたテストがされます。
 
-Software is similar. Instead of writing your entire program in one huge file with many lines of code, you write your code in multiple small modules that you can test more thoroughly than if you tested the assembled whole. In this way, writing testable code is intertwined with writing clean, modular code.
+ソフトウェアも似ています。全体のプログラムをたくさんの行からなる巨大な 1 つのファイルとして書く代わりに、全体をテストするよりもより徹底してテストを行える小さなモジュールとしてコードを書きます。このようにして、テストをしやすいコードを書くということは、簡潔かつもジューラーなコードを書くこととなります。
 
-To make your app more testable, start by separating the view part of your app—your React components—from your business logic and app state (regardless of whether you use Redux, MobX or other solutions). This way, you can keep your business logic testing—which shouldn’t rely on your React components—independent of the components themselves, whose job is primarily rendering your app’s UI!
+アプリケーションをよりテストしやすくするには、React のコンポーネントのビューをロジックとステートに切り離すことから始めましょう。 (Redux, MobX その他どのようなソリューションを用いるとしてもです。) このようにして、React コンポーネントに依存してはいけないビジネスロジックのテストと、主にアプリケーションの UI をレンダリングすることが責務となるコンポーネントの独立性を保つことができます。
 
-Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. Your app’s logic would work without any React components at all!
+理論的には、全てのロジックとデータの取得をコンポーネントから移動させることができるはずです。こうすれば、コンポーネントはレンダリングに注力できます。ステートは完全にコンポーネントから独立するでしょう。アプリケーションのロジックはコンポーネントが一切存在しなくても動くはずです。
 
-> We encourage you to further explore the topic of testable code in other learning resources.
+> 他の学習資料でテスタブルなコードについてのトピックをより深く調べてみることをお勧めします。
 
-## Writing Tests
+## テストを書く
 
-After writing testable code, it’s time to write some actual tests! The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away—[more on mocks](#mocking) shortly. You can use Jest to write all types of tests featured in this guide.
+テスタブルなコードを書いた次に、実際にいくつかテストを書いてみましょう。 React Native の初期状態のテンプレートは[Jest](https://jestjs.io)テストフレームワークを搭載しています。これにはこの環境に適したプリセットが含まれているので、config やモックを調整ぜずに生産的なテストを行うことができます[more on mocks](#moching)。Jest を使用してこのガイドで取り上げられている全てのタイプのテストを行うことができます。
 
-> If you do test-driven development, you actually write tests first! That way, testability of your code is given.
+> テスト駆動開発をするなら、テストを最初に書きましょう！そうすれば、テスタビリティがコードに与えられます。
 
-### Structuring Tests
+### テストを構成する
 
-Your tests should be short and ideally test only one thing. Let's start with an example unit test written with Jest:
+あなたのテストは短く理想的には 1 つのことをテストするべきです。Jest で書かれたテストを例にとって始めましょう。
 
 ```js
 it('given a date in the past, colorForDueDate() returns red', () => {
@@ -59,84 +59,85 @@ it('given a date in the past, colorForDueDate() returns red', () => {
 });
 ```
 
-The test is described by the string passed to the [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) function. Take good care writing the description so that it’s clear what is being tested. Do your best to cover the following:
+このテストは[`it`](https://jestjs.io/docs/en/api#testname-fn-timeout)関数に渡す文字列で表現されます。これが何をテストするものなのか明確になるように気をつけて記述をしてください。以下のことを網羅することにベストを尽くしましょう。
 
-1. **Given** - some precondition
-2. **When** - some action executed by the function that you’re testing
-3. **Then** - the expected outcome
+1. **Given** - いくつかの前提となる条件
+2. **When** - テスト対象の関数によって実行されるいくつかの挙動
+3. **Then** - 予期される結果
 
-This is also known as AAA (Arrange, Act, Assert).
+これらはまた AAA(Arrange, Act, Assert)としても知られています。
 
-Jest offers [`describe`](https://jestjs.io/docs/en/api#describename-fn) function to help structure your tests. Use `describe` to group together all tests that belong to one functionality. Describes can be nested, if you need that. Other functions you'll commonly use are [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) or [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) that you can use for setting up the objects you're testing. Read more in the [Jest api reference](https://jestjs.io/docs/en/api).
+Jest はテストを構成するのを助ける [`describe`](https://jestjs.io/docs/en/api#describename-fn) 関数を提供します。1 つの機能性に属する全てのテストをグループにまとめるのに `describe` を使用してください。describe 関数は必要であればネストして構いません。その他の関数でよく使われるものには[`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) や [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) があり、テストしたいオブジェクトの設定をするために使えます。詳細は[Jest api reference](https://jestjs.io/docs/en/api)を読んでください。
 
-If your test has many steps or many expectations, you probably want to split it into multiple smaller ones. Also, ensure that your tests are completely independent of one another. Each test in your suite must be executable on its own without first running some other test. Conversely, if you run all your tests together, the first test must not influence the output of the second one.
+もしテストが多くのステップ、多くの結果をテストする時に、もっと小さくそれらを分けたくなるでしょう。そのようであれば、あなたのテストケースは他の機能から完全に独立することを保証してください。テストスイートの中のそれぞれのテストは他のテストケースが走り始めなくても、単体で実行できるようにしなければなりません。逆の見方をすると、全てのテストを一度に行う場合は、最初のテストが次のテストの結果に影響を与えてはいけません。
 
-Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite. Think of a failed test as of a _good thing!_ When a test fails, it often means something is not right. This gives you an opportunity to fix the problem before it impacts the users.
+最後に、開発者として私たちはちゃんとコードが動いてクラッシュしないことを好みます。テストでは、よく反対のことが起きます。テストが失敗することを _良いこと_ だと捉えましょう。テストが失敗する時、多くの場合何かが間違っていることを意味します。それはユーザーに影響を与える前に問題を直す機会を与えてくれているのです。
 
-## Unit tests
+## 単体テスト
 
-Unit tests cover the smallest parts of code, like individual functions or classes.
+単体テストは分離された関数やクラスのようにコードの最も小さな単位をカバーします。
 
-When the object being tested has any dependencies, you’ll often need to mock them out, as described in the next paragraph.
+テストされたオブジェクトが何かに依存する時、詳細は次のパラグラフで説明しますが、よくそれらをモックにする必要がでてきます。
 
-The great thing about unit tests is that they are quick to write and run. Therefore, as you work, you get fast feedback about whether your tests are passing. Jest even has an option to continuously run tests that are related to code you’re editing: [Watch mode](https://jestjs.io/docs/en/cli#watch).
+単体テストの良い点は早く書けて早く実行できることです。ゆえに、作業の最中でもすぐにテストが通るかどうかについて知ることができます。Jest は編集中のコードに連動して継続的にテストを走らせるオプションを持っています。: [Watch mode](https://jestjs.io/docs/en/cli#watch)
 
 <img src="/docs/assets/p_tests-unit.svg" alt=" " />
 
-### Mocking
+### モッキング
 
-Sometimes, when your tested objects have external dependencies, you’ll want to “mock them out.” “Mocking” is when you replace some dependency of your code with your own implementation.
+ときどき、テストをするオブジェクトは外部のコードに依存を持っていて、あなたはそれらをモックにしたいと考えるでしょう。モッキングはコードの外部への依存部分を任意の実装で置き換えることです。
 
-> Generally, using real objects in your tests is better than using mocks but there are situations where this is not possible. For example: when your JS unit test relies on a native module written in Java or Objective-C.
+> 一般的にテストにはモックを使うよりも実際のオブジェクトが使われることがことが好ましいですが、それが不可能なことがあります。例えば、あなたの JS のユニットテストが Java や Objective-C で書かれているネイティブモジュールに依存している場合など。
 
-Imagine you’re writing an app that shows the current weather in your city and you’re using some external service or other dependency that provides you with the weather information. If the service tells you that it’s raining, you want to show an image with a rainy cloud. You don’t want to call that service in your tests, because:
+天気の情報を提供している外部のサービスやその他の依存コードを使って現在の街の天気を表示するアプリケーションを書くことを想像してみましょう。もしサービスが雨だと教えてくれるとき、雨雲の画像を表示したいとします。あなたは次のような理由でテストの中でそれらのサービスを呼び出したくないはずです。
 
-- It could make the tests slow and unstable (because of the network requests involved)
-- The service may return different data every time you run the test
-- Third party services can go offline when you really need to run tests!
+- テストが遅くなり不安定になりえるから(ネットワークリクエストに巻き込まれて)
+- サービスがテストのたびに違うデータを返してくる可能性がある
+- サードパーティのサービスに繋がらない時でもテストを動かす必要があるから
 
-Therefore, you can provide a mock implementation of the service, effectively replacing thousands of lines of code and some internet-connected thermometers!
+それゆえに、サービスのモック実装することによって、何千にもおよぶ行のコードとインターネットに接続された温度系を効果的に置き換えることができます。
 
-> Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules) from function level all the way to module level mocking.
+> Jest は[モックに関するサポート](https://jestjs.io/docs/en/mock-functions#mocking-modules)をあらゆる実装の関数レベルからモジュールレベルまで実現しています。
 
-## Integration Tests
+## 統合テスト
 
-When writing larger software systems, individual pieces of it need to interact with each other. In unit testing, if your unit depends on another one, you’ll sometimes end up mocking the dependency, replacing it with a fake one.
+大きなソフトウェアシステムを書く時、個々のプログラムが相互にやりとりする必要があります。単体テストではあるプログラムが他のプログラムに依存していても、その依存をモックしてフェイクに置き換えることがありました。
 
-In integration testing, real individual units are combined (same as in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example, to mock communication with a weather service), but you'll need them much less than in unit testing.
+統合テストでは、実際の個々のユニットを組み合わせて(実際のアプリケーションと同じように)それらが期待通りに協調して動くことを保証するためのテストをまとめて行います。だからと言って、モッキングが必要でなくなるわけではありません。まだモック(例えば、天気情報の通信のモック)を必要とするかもしれませんが、単体テストの時より必要とする機会はずっと少ないでしょう。
 
-> Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
->
-> - Combines several modules of your app as described above
-> - Uses an external system
-> - Makes a network call to other application (such as the weather service API)
-> - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
+> 統合テストに関する用語の意味は必ずしも一貫性があるものではないことに注意してください。また、単体テストと統合テストの境界はいつでも明確とは限りません。このガイドでは、テストが以下のような時に統合テストに分類することとします。
+
+> - 先に述べたようにアプリケーションにおける複数のモジュールが結合している時
+> - 外部のシステムを使っている時
+> - (天気サービスの API のような)他のアプリケーションをネットワークから呼び出している時
+> - ファイルやデータベースの<abbr title="Input/Output">I/O</abbr>を行う時
 
 <img src="/docs/assets/p_tests-integration.svg" alt=" " />
 
-## Component Tests
+## コンポーネントテスト
 
-React components are responsible for rendering your app, and users will directly interact with their output. Even if your app's business logic has high testing coverage and is correct, without component tests you may still deliver a broken UI to your users. Component tests could fall into both unit and integration testing, but because they are such a core part of React Native, we'll cover them separately.
+React コンポーネントは描画に関する責務があり、ユーザーは描画されたものを直接触ります。例えあなたのビジネスロジックのテストカバレッジが高く正しいとしても、コンポーネントのテストなしではユーザーに壊れた UI を提供してしまう可能性があります。コンポーネントテストは単体テストあるいは統合テストに分類されることがありますが、React Native においては重要な部分なので、それらとは分けて見ていきましょう。
 
-For testing React components, there are two things you may want to test:
+React コンポーネントをテストするというのも、2 つのことをテストしたいからです。
 
-- Interaction: to ensure the component behaves correctly when interacted with by a user (eg. when user presses a button)
-- Rendering: to ensure the component render output used by React is correct (eg. the button's appearance and placement in the UI)
+- インタラクション: ユーザーの操作に対しコンポーネントの正しい振る舞いを保証する(例: ボタンを押した時の挙動)
+- レンダリング: React によってコンポーネントが結果を正しく表示していることを保証する(例: UI におけるボタンの見た目や位置)
 
-For example, if you have a button that has an `onPress` listener, you want to test that the button both appears correctly and that tapping the button is correctly handled by the component.
+例えば、ボタンが `onPress` リスナーを持っている時、コンポーネントによってボタンの見た目とボタンがタップされたときに正しく動くか、そのどちらもテストしたいとします。
 
-There are several libraries that can help you testing these:
+これらのテストを助けるいくつかのライブラリがあります。
 
-- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
-- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
+- React の[Test Renderer](https://reactjs.org/docs/test-renderer.html)、 React のコアと一緒に開発されていて、DOM やネイティブモバイル環境がなくても React のコンポーネントをピュアな JavaScript のオブジェクトに書き出せるレンダラーを提供します。
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)は React の `Test Renderer` にビルドされ、次のパラグラフで述べるような `fireEvent` や `query` API を追加します。
 
-> Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+> コンポーネントテストは Node.js 環境での Javasdcript のみのテストです。それらは React Nativeのコンポーネントからブリッジされているいかなる iOS、Android、その他のプラットフォームのコードも _考慮しません_ 。このことは、それらが 100%の信頼を持ってユーザーに全てが動くことを保証するわけではないということです。もし、iOS や Android のコードにバグがあれば、それらは見つからないでしょう。
 
 <img src="/docs/assets/p_tests-component.svg" alt=" " />
 
-### Testing User Interactions
+### ユーザーインタラクションのテスト
 
-Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
+UI を描画する以外にも、コンポーネントは `TextInput` の `onChangeText` 、`Button`の `onPress` というようなイベントの操作をします。それらはイベントのコールバックやその他の関数を含むことがあります。
+次の例を考えましょう。
 
 ```jsx
 function GroceryShoppingList() {
@@ -167,22 +168,22 @@ function GroceryShoppingList() {
 }
 ```
 
-When testing user interactions, test the component from the user perspective—what's on the page? What changes when interacted with?
+ユーザーインタラクションをテストするとき、ユーザーの視点から『ページに何があるのか、操作によって何が起きるか』をテストしてください。
 
-As a rule of thumb, prefer using things users can see or hear:
+経験則としてユーザーが、見ることができるもの、聞くことができるものを使う事が好ましいです。
 
-- make assertions using rendered text or [accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties)
+- 描画された文字や[accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties)を使用してアサーションを作成する
 
-Conversely, you should avoid:
+逆に避けるべき事は以下の通りです。
 
-- making assertions on component props or state
-- testID queries
+- コンポーネントの props や state のアサーションを作成をすること
+- testID のクエリ
 
-Avoid testing implementation details like props or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
+テストを通すことは出来るとしても props やステートの実装の細かい部分をテストすることは避けてください。それらはリファクタリング(例えば、あなたが、それらのいくつかをリネームしたい時やクラスコンポーネントを hooks で書き直したい時)によって壊れやすくなりコンポーネントをユーザーがどう操作出来るかについて使う事には向いていません。
 
-> React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+> React のクラスコンポーネントでは、特に内部のステートや props、イベントハンドラのような実装の細かい部分をテストしてしまうことがあります。実装の細かい部分をテストするのは避け、コンポーネントの内部に依存する事を _難しくする_ Hooks を用いた関数コンポーネントを用いるのが好ましいです。
 
-Component testing libraries such as [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
+[React Native Testing Library](https://callstack.github.io/react-native-testing-library/)のようなコンポーネントテストライブラリでは、提供されている API を注意深く選ぶことによりユーザー重視のテストが書きやすくなります。次の例では、`fireEvent`のメソッドである `changeText` と `press` を使いユーザーの操作をシミュレートし、`getAllByText`を用いて描画されたもの中からマッチする `Text` ノードを探索しています。
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
@@ -197,17 +198,17 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
   fireEvent.press(getByText('Add the item to list'));
 
   const bananaElements = getAllByText('banana');
-  expect(bananaElements).toHaveLength(1); // expect 'banana' to be on the list
+  expect(bananaElements).toHaveLength(1); // 'banana' がリスト上に存在すること
 });
 ```
 
-This example is not testing how some state changes when you call a function. It tests what happens when a user changes text in the `TextInput` and presses the `Button`!
+この例では、関数を呼び出した時にどのようにステートが変化するかというロジックに関してテストをしているわけではありません。ユーザーが `TextInput` のテキストを変更して `Button` が押された時に起こる事についてテストしているのです。
 
-### Testing Rendered Output
+### 描画結果のテスト
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is an advanced kind of testing enabled by Jest. It is a very powerful and low-level tool, so extra attention is advised when using it.
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing)は、Jest を使うことで可能になる高度なテストです。とても強力かつ低レベルなツールであり、使用する際には必要以上の注意をすることを勧めます。
 
-A "component snapshot" is a JSX-like string created by a custom React serializer built into Jest. This serializer lets Jest translate React component trees to string that's human-readable. Put another way: a component snapshot is a textual representation of your component’s render output _generated_ during a test run. It may look like this:
+コンポーネントのスナップショットは Jest に組み込まれているカスタムされた React のシリアライザによって作られる JSX のような文字列です。このシリアライザは Jest に React のコンポーネントツリーを人間が読めるような文字列に変換させます。言い換えるとコンポーネントのスナップショットはテスト中に _生成された_ 結果を描画したコンポーネントをテキストで表したものです。それは以下のような見た目になっています。
 
 ```jsx
 <Text
@@ -221,43 +222,43 @@ A "component snapshot" is a JSX-like string created by a custom React serializer
 </Text>
 ```
 
-With snapshot testing, you typically first implement your component and then run the snapshot test. The snapshot test then creates a snapshot and saves it to a file in your repo as a reference snapshot. **The file is then committed and checked during code review**. Any future changes to the component render output will change its snapshot, which will cause the test to fail. You then need to update the stored reference snapshot for the test to pass. That change again needs to be committed and reviewed.
+スナップショットのテストを用いるとき、典型的には最初にコンポーネントを実装して、その後にスナップショットテストを実行しますスナップショットテストはレポジトリやファイルに参照用としてスナップショットを作成し保存します。 **そのファイルをコミットし、コードレビューの合間にチェックします**。コンポーネントの描画結果に関する変更はスナップショットを変化させるので、テストは失敗します。そうした時、あなたはテストをパスさせるために保存されている参照用のスナップショットを修正する必要があります。それらの変更をもう一度コミットし、レビューする必要があります。
 
-Snapshots have several weak points:
+スナップショットにはいくつか弱点があります。
 
-- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can quickly become hard to understand and their added value becomes low.
-- When snapshot is created, at that point it is considered to be correct-even in the case when the rendered output is actually wrong.
-- When a snapshot fails, it's tempting to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
+- デベロッパーやレビュアーにとって、意図された変更によるものなのか、バグによるものなのかを区別するのが難しいのです。特に、大きなスナップショットはすぐに理解が難しくなり、それらを導入する価値が低くなります。
+- スナップショットが作られた時に、出力結果が実際には間違っているケースでも正しいものと同様に扱われてしまいます。
+- スナップショットが失敗した時に、その変更が意図通りのものなのかを適切に検証をせずに Jest の `--updateSnapshot` オプションを利用して更新したい誘惑に駆られます。開発者として確固たる自制心が必要です。
 
-Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+スナップショットそれ自体はロジックが正しいかを保証しません。それらはただ単に、予期しないような変更が発生することへの予防に役に立ち、テスト中の React ツリーのコンポーネントが期待通りに props(styles などの props)を受け取っているかをチェックするためのものです。
 
-We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
+わたしたちは、小さなスナップショットだけを用いる事を推奨します。(詳しくは[`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)) もし 2 つの React のコンポーネントのステート間の _変更_ をテストしたいなら、[`snapshot-diff`](https://github.com/jest-community/snapshot-diff)を使ってください。疑わしい時は、疑わしい時は、前のパラグラフで述べたような明白な結果を期待する検証をすることが望ましいです。
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
-## End-to-End Tests
+## End-to-End テスト
 
-In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
+End-to-End テスト(E2E テスト)はユーザー視点でデバイス上(あるいはシミュレータやエミュレータ)で期待通りにアプリケーションが動いているか検証します。
 
-This is done by building your app in the release configuration and running the tests against it. In E2E tests, you no longer think about React components, React Native APIs, Redux stores or any business logic. That is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
+これはアプリケーションがリリース設定でビルドされたものに対してテストを実行することによって実現します。E2E テストでは、もはや React コンポーネント、React Native の API、Redux の store やビジネスロジックについては考えません。それらは E2E テストの目的ではなく、 E2E のテストの間アクセスすらできません。
 
-Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can _actually_ tap buttons or insert text into `TextInputs` the same way a real user would. Then you can make assertions about whether or not a certain element exists in the app’s screen, whether or not it’s visible, what text it contains, and so on.
+その代わり、E2E テストライブラリはアプリケーション上の画面の中から要素を探しだし操作することを可能にします。例えば、 *実際に*　現実の世界のユーザーと同等の手段でボタンをタップしたり、テキストを `TextInputs` に挿入できます。それからアプリケーションのスクリーンのなかに特定の要素が存在するか、見えているか、どんなテキストを含むかなどを検証できます。
 
-E2E tests give you the highest possible confidence that part of your app is working. The tradeoffs include:
+E2E テストはアプリケーションが部分的に動く事について最も高い信頼を与えてくれます。以下のようなトレードオフはあります。
 
-- writing them is more time consuming compared to the other types of tests
-- they are slower to run
-- they are more prone to flakiness (a "flaky" test is a test which randomly passes and fails without any change to code)
+- 他のテスト手段に比べて記述に多くの時間がかかります。
+- 実行が比較的遅いです。
+- 結果が"フランキー"(まばら)になる傾向があります("フランキー"テストとはコードが同一でもランダムにパスしたり失敗したりするテストのことです)
 
-Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
+E2E テストはアプリケーションにとって生命線となる機能で使ってください。: 認証のフロー、重要な機能、決済、などです。アプリケーションの死活にかかわらない機能はより速い JS のテストを使いましょう。テストを増やすに連れて信頼性は増しますが、メンテナンスやテストの実行により多くの時間をかけることにもなります。トレードオフを考えながらあなたにとって何がベストであるかを決めてください。
 
-There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
+E2E テストに利用できるツールは複数あります。: React Native Community においては、React Native 用に調整されているので[Detox](https://github.com/wix/detox/)が人気のフレームワークです。その他にも iOS や Android アプリケーションにおいて人気のあるライブラリとして[Appium](http://appium.io/)があります。
 
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
-## Summary
+## サマリー
 
-We hope you enjoyed reading and learned something from this guide. There are many ways you can test your apps. It may be hard to decide what to use at first. However, we believe it all will make sense once you start adding tests to your awesome React Native app. So what are you waiting for? Get your coverage up!
+私たちはこのガイドを読んで何かを学び楽しんでくれたことを願います。アプリケーションをテストできるたくさん方法があります。何を最初に使えばいいか決めるのは難しいこともあります。しかしながら、ひとたび React Native アプリケーションにテストが加わると、その全てが意味をなすようになると私たちは信じています。何を待つことがあるでしょうか？今すぐテストカバレッジを上げていきましょう。
 
 ### Links
 
@@ -269,4 +270,4 @@ We hope you enjoyed reading and learned something from this guide. There are man
 
 ---
 
-_This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
+_このガイドの原文は全て[Vojtech Novak](https://twitter.com/vonovak)によって書かれ寄稿されました。_
