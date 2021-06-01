@@ -3,9 +3,9 @@ id: props
 title: Props
 ---
 
-Most components can be customized when they are created, with different parameters. These created parameters are called `props`, short for properties.
+ほとんどのコンポーネントは作成時に様々なパラメータによってカスタマイズできます。これらのパラメータのことを、`props` (プロップス・ `properties` の略) と呼びます。
 
-For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
+例えば、React Native における基本的なタグの一つ・ `Image` は、 `source` という props を使って内容を表現します。
 
 ```SnackPlayer name=Props
 import React from 'react';
@@ -23,9 +23,9 @@ const Bananas = () => {
 export default Bananas;
 ```
 
-Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
+`{pic}` についている波括弧は、 変数 `pic` を JSX に埋め込む働きがあります。平たく言うと、波括弧を使うことで JavaScript を JSX の中に埋め込むことができます。
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place by referring to `props` in your `render` function. Here's an example:
+オリジナルのコンポーネントでも `props` を使うことができます。つまり、一つのコンポーネントを `props` でカスタマイズすることでアプリの色々な場所に、そこに合った形で使うことが出来るようになるわけです。例を見てみましょう。
 
 ```SnackPlayer name=Props
 import React from 'react';
@@ -50,8 +50,8 @@ export default LotsOfGreetings = () => {
 }
 ```
 
-Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, similar to the [Core Components](intro-react-native-components). The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you can invent new ones.
+`name` を `props` として使うことで、`Greeting` コンポーネントをカスタマイズすることができるので、挨拶のたびに再利用することができます。この便利さが React の人気の秘密です。もし、既存の UI プリミティブ (`div`、`span`, `form` 等) だと物足りないと感じたら、あなたが作ってみてはどうでしょう？
 
-The other new thing going on here is the [`View`](view.md) component. A [`View`](view.md) is useful as a container for other components, to help control style and layout.
+ここで一つ新しい要素のご紹介。 [`View`](view.md) コンポーネントは他のコンポーネントのコンテナとして、レイアウトやスタイリングをするのに便利です。`div` と似た働きをします。
 
-With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](view.md) components, you can build a wide variety of static screens. To learn how to make your app change over time, you need to [learn about State](state.md).
+`props` と [`Text`](text.md)、[`Image`](image.md) や、[`View`](view.md) 等の基本的なコンポーネントを使うことで、さまざまな静的な画面を作ることができます。もしそれらを動かしたいなら、[`State` について学びましょう](state.md)。
