@@ -1,140 +1,125 @@
-# React Native Documentation Style Guide
+# React Native ドキュメンテーションスタイルガイド
 
-We believe everyone should be able to learn React Native, no matter what their technology platform, experience, country of origin, age, race, gender, etc. And our documentation guidelines reflect that.
 
-## From “Zero to 360”
 
-Part of what makes books like Effective JavaScript effective for new learners as well as advanced is that each section starts by assuming the reader has no knowledge of JavaScript. By the end of the chapter, the author has ramped up the content to speak at an expert level. That’s the sort of cadence we’re looking for in our documentation pages. Each page should start with the basics then ramp up to advanced ideas and concepts. Readers will, as with Effective JavaScript, revisit the content as their expertise and understanding grows.
+テクノロジー、経験、国、年齢、人種、性別に関わらず、誰もが React Native を学ぶことができるべきです。そしてドキュメンテーションガイドラインもその方針を反映しています。
 
-## Write for more than a React audience
+## “ゼロから 360 まで”
 
-It’s convenient to write as though the reader has the same background and perspective that you do. But in reality, our readers have a range of experience as well as come to us from many different fields including Android and iOS. We have to be inclusive of all learners, and that means taking nothing for granted!
+「Effective JavaScript」のような本が上級者だけでなく、初心者にも効果的なのは、各章が読者がJavaScriptの知識がないことを想定して始まっているからです。しかし章が終わる頃には、内容は専門家レベルにまで達しています。これは、私達がドキュメンテーションに求めるものです。つまり、各ページは基本的な内容から高度な内容に発展するべきです。読者は、専門知識と理解が深まるにつれてコンテンツを再訪することになります。
 
-- **Assume no knowledge of React.** 31% of visitors surveyed in September 2019 said they have no experience with React JS. When explaining React concepts, give a short explanation and then link to the appropriate React docs.
-- **Assume readers have no background in web development.** While 76% of our visitors surveyed in September 2019 said they had experience with web development before starting with React Native, that means 24% came in without any knowledge of web paradigms! 7.4% said they had no experience, meaning we can’t rely on Android, iOS, or web metaphors with those readers.
-- **Provide references to multiple technologies.** To help learners from Android and iOS backgrounds, it’s important that references also take those experiences into account and make comparisons for them in addition to web developers.
+## 誰もが React 経験者ではありません
 
-### Example
+読者があなたと同じ知識や経験があるとは限りません。iOS や Android、また様々なフィールドから読者はやってきます。私たちはすべての学習者を包括的に受け入れなければなりません。
 
-**Bad** “React Native is like React, but it uses native components instead of web components as building blocks.” This assumes a knowledge of the Web as well as React—and readers may lack one or both of those.
+- **React の知識が無いことを前提とする。** 2019年9月の調査によると、訪問者の 31% が React JS の経験がないと回答しています。React の概念を説明するときは、簡単な説明をしてから、適切な React のドキュメントにリンクしましょう。
+- **Web 開発の知識がないことを前提とする。** 調査によると、76% の訪問者のみがWeb開発の経験があると答えました。つまり、24% は Web 開発に対して全く知識がありません！ また、7.4% は開発の経験がないと答えました。iOS / Android / web 的比喩 ( React Native の `View` は HTML の `div` のようだ、等) の使用は極力控えるべきです。
+- **他のテクノロジーも参照する。** iOS や Android に造詣が深い読者の為に、web だけでなく、他のテクノロジーを参照するべきです。
 
-**Good** “React Native is built with React. On the Web, React composes web components into UIs. Similarly, React Native uses native components as building blocks.”
+**悪い例** 「 React Native は React のようですが、web コンポーネントの代わりにネイティブコンポーネントを使用します。」 Web 開発と React の経験を前提としています。読者は片方、もしくは両方の知識を欠いている可能性があります。
 
-## Unpack “native”
+**良い例** 「 React Native は React を使って構築されています。Web 上では、React は Web コンポーネントを組み合わせて UI を作成します。同様に、React Native はネイティブコンポーネントを組み合わせ使用します。」
 
-Refer to non-web technologies by their proper nouns or as “apps,” not lumping them as “native.” Android and iOS developers do not think of their technologies as “native” nor what they build as “native apps.” Being more specific helps create an inclusive shared vocabulary for web and app devs to learn and collaborate with each other.
+## あなたにとっての “native”？
 
-### Example
+Web 以外の技術を固有名詞 ( `Kotlin` や `Swift` ) ないしは「アプリ」と呼び、“native” と一括りにしないことに注意して下さい。Android / iOS 開発者と React Native 開発者は、 "native"  の意味に対して違う理解があるかもしれません。より具体的にすることで、Web 開発者とアプリ開発者がお互いに学び、協力し合えるように、包括的な共有語彙を作ることができます。
 
-**Bad** “Native App Accessibility (Android and iOS)” Qualifying “app” with “native” is redundant with “Android and “iOS” in the same phrase.
+**悪い例** 「ネイティブアプリのアクセシビリティ」
 
-**Good** “App Accessibility on Android and iOS” specifies both platforms and drops the confusing “native.”
+**良い例** 「 Android / iOS のアクセシビリティ」
 
-## Welcoming and mature
+## 柔らかすぎず硬すぎず
 
-Tone counts for a lot. Too familiar, and some folks might feel like they aren’t a part of a company of friends. Too formal and we risk alienating them with a robotic-sounding textbook! Our aim is to be welcoming and mature, like a senior developer who doesn’t take themselves too seriously.
+トーンはとても重要です。表現が硬すぎると、数学の教科書のようになり、アレルギーを起こす人がいるでしょう。柔らかすぎると、馴れ馴れしすぎて嫌になる人がいるかもしれません。「柔らかすぎず硬すぎず」。何事もバランスです。
 
-### Example
+**悪い例**「古来の伝統に従って、"Hello, world!" と言うしか能のないアプリを作らなければならない！」 面白いかもしれませんが、ドキュメントには適していません。
 
-**Bad** “In accordance with the ancient traditions of our people, we must first build an app that does nothing except say ‘Hello, world!’” Pokes fun at ancient traditions of “our people” (whose people?) using a storytelling voice familiar to European English-language speakers that could be lost on people from other backgrounds.
+**良い例** 「まずはどの言語でも基本である、"Hello, world!" と表示するアプリを作ってみましょう。」 簡潔かつ硬すぎない表現で誰にでも読みやすいです。
 
-**Good** “As with so many other tutorials, you will first build an app that says ‘Hello, world!’” This is shorter, easier to read, and still keeps a friendly tone by acknowledging the proliferation of ‘hello world’ apps.
+## 言語・文化依存のジョークの禁止
 
-## In-jokes are out
+言語・文化に依存しているジョークは他の言語に翻訳するのがとても難しくなります。漫才は英語ではあまり面白くないかもしれません。更に、一過性のもの、例えば流行りの映画等を参照することも好ましくありません。5年後には時代遅れになってしまい、将来のドキュメント編集者が更新する手間が増えます。
 
-Cultural reference jokes, or “in-jokes,” don’t translate well across language and cultural divides. Even a reference to a popular British television drama like Downton Abbey can be lost on an American audience! What’s more, these reference tend to exclude people of different generations and age poorly. For instance, a Never Ending Story reference is lost on people born in the 90’s, and a Stranger Things reference will be outdated in five years, meaning more work for future documentation contributors to update.
+## 「あなた」、「私たち」、そして「彼ら」
 
-## “you”, “we”, and “they”
+- 「あなた」(you) は読者を指します。
+- 「私たち」(we) は紛らわしくて曖昧な表現です。これは、React Native コミュニティ、React Native 貢献者、または Facebook の React Native Core チームを指している可能性があります。そのため、対象を明示的に参照した後でのみ「私たち」 (we) を使用してください。
+- 「彼ら」とは、この「あなた/私たち」以外の人や組織のことを指します。
+  - 「私たち」(we) と同様に対象を明確にしましょう。
 
-- “You” refers to the reader
-- “We” can be confusing and ambiguous. It could refer to the React Native community, React Native contributors, or the React Native Core team at Facebook. As such, only use “we” after explicitly referring to one of those groups.
-- “They” refers to people or organizations outside this “you/we” paradigm
-  - Set up who “they” are by referencing the person/org first
+**悪い例** 「ジーニアス社さんが作ってくださった Web シミュレータでサンプルコードを直接弄れることができます。(素晴らしいツールです。**あなた**のおかげです！)  **彼ら**の貢献が React Native を発展させます。**彼らが**協力するのは素晴らしいですね！」
 
-### Example
+**良い例** 「ジーニアス社さんが作ってくださった Web シミュレータでサンプルコードを直接弄れることができます。(素晴らしいツールです。**彼ら**のおかげです！)  **React Native コミュニティ**の貢献が React Native を発展させます。**私たち皆で**協力するのは素晴らしいですね！」
 
-**Bad** “We can play around with sample code directly in these web simulators made by Genius Co. (You have built a wonderful tool!) Their contributions make it better and better. It’s great when they all work together!”
+## 代名詞は避ける
 
-**Good** “You can play around with sample code directly in these web simulators made by Genius Co. (They have built a wonderful tool!) The React Native community’s contributions make it better and better. It’s great when we all work together!”
+代名詞は言語によっては翻訳が難しいものがあります。また、代名詞は性別で表現される場合 (he, she; 彼、彼女 等) があり、不必要なバイアスがかかっています。
 
-## Avoid pronouns
+**悪い例** 「彼がアプリを開くと ローディング画面が表示される」
 
-Pronouns are difficult to translate into some languages. They also tend to be gendered, which provides unnecessary bias.
+**悪い例** 「ユーザーがアプリを開くと ローディング画面が表示される」
 
-### Example
+## 動名詞は使わない
 
-<!--alex ignore he-she retext-equality-->
+日本語では相当する動詞活用がないため割愛。
 
-**Bad** “When he opens the app, he will see a loading screen.”
+英語での例：
 
-**Good** “When the user opens the app, it will show a loading screen.”
+**Bad** “Coding with React Native is fun!“
 
-## Prefer imperative to gerund
+**Good** “It is fun to code with React Native!“
 
-"To" forms of verbs are easier to translate.
+## 短く簡潔に
 
-### Example
+短い文章の方が、機械にも人間にも翻訳しやすいです。一つの長い文章よりも、短く、簡潔な文章を心がけましょう。
 
-**Bad** “Coding with React Native is fun!”
+**悪い例** 「まず、ES2015（ES6とも呼ばれています）は、現在では公式規格の一部となっている JavaScript の改良セットですが、まだ一部のブラウザでサポートされていないため、Web開発では使われていないことが多いです。」
 
-**Good** “It is fun to code with React Native!”
+**Good** 「ES2015 は現在では公式規格の一部となっている JavaScript の改良セットです。まだ一部のブラウザでサポートされていないため、Web開発では使われていないことが多いです。」
 
-## Shorter is better
 
-Short sentences are easier to translate, for both machines and humans! Break clauses into multiple sentences.
+# 技術的ドキュメンテーションのガイドライン
 
-### Example
+## メニューパスのフォーマット
 
-**Bad** “First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development.”
+OS のメニューをナビゲートする際には、メニュー選択パスを**太字**にし、サブメニューを示すために「 **>** 」を使用します。
 
-**Good** “ES2015 is a set of improvements to the official JavaScript standard. It is not yet supported by all browsers, so it isn't used yet in web development.”
+**悪い例** 「Xcode の "Preferences..." を開いてから "Components" をクリックします。」
 
-# Technical documentation guidelines
+**良い例** 「**Xcode** **>** **Preferences...** を開いてから **Components** をクリックします。」
 
-## Format menu paths
+## “Android” は “iOS” の前
 
-When navigating operating system menus, the menu selection path should be **bold** and use carats to indicate submenus.
+Android の開発者の数は iOS を上回っており、iOS を Android の前に置くことは、軽蔑的で特権的だと感じるかもしれません。少なくとも一貫性を保つために、技術をリストアップする際には、iOS よりも Android の方が優先されます。
 
-### Example
+**悪い例** 「React、iOS、Android の開発に関する予備知識がないことを前提に最善を尽くしていますが、これらは React Native 開発者にとって貴重な研究トピックです。」
 
-**Bad** “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
+**良い例** 「React、Android、iOS の開発に関する予備知識がないことを前提に最善を尽くしていますが、これらは React Native 開発者にとって貴重な研究トピックです。」
 
-**Good** “Open **Xcode > Preferences...** and select the **Components** tab.” Path is clearer to pick out from the surrounding copy.
+## 値については明確に
 
-## “Android” before “iOS”
+プロパティの値を記述する際には、何が許可されていて何が許可されていないかを明確にしましょう。何かがオプションである場合は、オプションであることを明言します。何かが複数の値を持つことができる場合は、どの値を受け入れることができるかを述べます。
 
-The number of Android developers surpasses iOS developers, and putting iOS in front of Android seems belittling and privileged. For consistency's sake at the very least, when listing technologies, Android comes before iOS.
+**悪い例** 「A は整数であるべき。」
 
-**Bad** “While we do our best to assume no prior knowledge of React, iOS, or Android development, these are valuable topics of study for the aspiring React Native developer.”
+**良い例** 「A は整数です。」
 
-**Good** “While we do our best to assume no prior knowledge of React, Android, or iOS development, these are valuable topics of study for the aspiring React Native developer.”
+## その他
 
-## When it comes to values, be explicit
+* “Hooks” は大文字から始まります。
 
-When it comes to describing property values, be definitive in what is and is not allowed. If something is optional, say it is optional. If something can have multiple values, say which values it can accept.
+## 読者を思いやる
 
-### Example
+ステップバイステップの解説（例えば、何かをインストールする方法）を書くときは、そのトピックについて知っていることをすべて忘れてみてください。書き終わったら、初心に戻り、あなたが書いた指示に従うことを想像してみて下さい。多くの場合、言及するのを忘れていた暗黙の知識があったり、指示の中に不足していたり、順序から外れたステップがあったりすることに気づくでしょう。プロのヒント：誰か他の人にあなたの指示に従ってもらい、彼らがどこで行き詰っているか見てみましょう。
 
-**Bad** “Should be an integer.” Implies that it could take other values. Leaves room for imagination.
+## もっと詳しく
 
-**Good** “Accepts integer values.” Leaves no doubt about what values this takes!
+## 執筆のコツ
 
-## Other grammar policies
+- まずはアウトライン（概要）を作成
+- アウトラインを拡張
+- 5W1H を意識する
 
-* Capitalize “Hooks.”
+## リソース
 
-## Empathize with readers
-
-When writing step-by-step instructions (e.g. how to install something), try to forget everything you know about the topic to attain a "beginner's mindset." Imagine follow the instructions you write, one step at time. Often you will discover that there is implicit knowledge that you forgot to mention, or that there are missing or out-of-order steps in the instructions. UX research pro tip: ask _someone else_ to follow your instructions and see where they get stuck!
-
-# Learn more
-
-## Writing tips
-
-- Start with an outline, a table of contents of what you want to cover
-- Expand that outline into fully fledged content
-- Ensure your content answers Who, What, Where, When, Why and How
-
-## Resources
-
-- [React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
+- 参考 (英)：[React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text)、 特に [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
