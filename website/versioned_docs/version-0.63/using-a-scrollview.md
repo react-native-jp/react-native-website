@@ -1,11 +1,12 @@
 ---
 id: using-a-scrollview
-title: Using a ScrollView
+title: ScrollViewを使う
 ---
 
-The [ScrollView](scrollview.md) is a generic scrolling container that can contain multiple components and views. The scrollable items need not be homogeneous, and you can scroll both vertically and horizontally (by setting the `horizontal` property).
+[ScrollView](scrollview.md) は汎用のスクロールするコンテナで、 複数のコンポーネントやビューを含むことができます。
+スクロールさせるアイテムは同種である必要がなく、垂直にも水平(`horizontal`props を設定することで)にもスクロールできます。
 
-This example creates a vertical `ScrollView` with both images and text mixed together.
+こちらの例では画像とテキストが混ざった垂直方向の `ScrollView` を作成しています。
 
 ```SnackPlayer name=Using%20ScrollView
 import React from 'react';
@@ -56,8 +57,8 @@ const App = () => (
 export default App;
 ```
 
-ScrollViews can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPager](https://github.com/react-native-community/react-native-viewpager) component.
+ScrollView は `pagingEnabled` という props を使うことで、スワイプによるページングができます。 Android での水平方向のビュー間のページングは [ViewPager](https://github.com/react-native-community/react-native-viewpager)を用いて実装できます。
 
-On iOS a ScrollView with a single item can be used to allow the user to zoom content. Set up the `maximumZoomScale` and `minimumZoomScale` props and your user will be able to use pinch and expand gestures to zoom in and out.
+iOS で ScrollView が 1 つだけのアイテムを持つ場合はズームが可能です。`maximumZoomScale` と `minimumZoomScale`を設定すると、ピンチイン・アウトでズームイン・アウトができます。
 
-The ScrollView works best to present a small amount of things of a limited size. All the elements and views of a `ScrollView` are rendered, even if they are not currently shown on the screen. If you have a long list of more items than can fit on the screen, you should use a `FlatList` instead. So let's [learn about list views](using-a-listview.md) next.
+ScrollView は少数の限られたサイズのアイテムをスクロールさせるときには上手く動きます。`ScrollView`内の全ての要素やビューは、画面に表示されていなくてもレンダーされてしまいます。もし画面に収まりきらないような長いリストを表示する場合は、代わりに `FlatList` を使うべきです。次は[learn about list views](using-a-listview.md) も学んでみましょう。
