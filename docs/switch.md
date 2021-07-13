@@ -5,8 +5,6 @@ title: Switch
 
 真偽値のインプットを描画します。
 
-This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
-
 ユーザーの操作を反映させるためには props の `value` を更新する必要があるため、`onValueChange`にコールバック関数を与えて `value` を更新させる必要があります。もし `value` が更新されない場合は、コンポーネントはユーザーの操作の結果期待される値の代わりに、渡された `value` を使い描画し続けてしまいます。
 
 ## Example
